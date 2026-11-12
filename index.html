@@ -1,0 +1,1922 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#101827"><title>PM Interview Lab</title><style>:root{font-family:Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:#e8edf7;background:#0b1220}*{box-sizing:border-box}body{margin:0}header{padding:22px 18px 14px;background:#101a2c;border-bottom:1px solid #27354a;position:sticky;top:0;z-index:5}h1{font-size:21px;margin:0 0 5px}small,.muted{color:#a8b5c8}.wrap{max-width:880px;margin:auto;padding:16px 15px 100px}.nav{display:flex;gap:8px;overflow-x:auto;padding:12px 0}.nav button,.chip,button{border:1px solid #35445b;background:#18253a;color:#edf3ff;border-radius:11px;padding:10px 12px;cursor:pointer;font-size:14px}.nav button.active,.primary{background:#4e74e7!important;border-color:#4e74e7!important;color:white}input,select,textarea{width:100%;background:#101a2c;color:#f2f5fb;border:1px solid #35445b;border-radius:11px;padding:12px;font:inherit}textarea{min-height:125px;resize:vertical}section.card{background:#131f32;border:1px solid #29384e;border-radius:16px;padding:17px;margin:12px 0}h2{font-size:19px;margin:8px 0 12px}h3{font-size:15px;margin:19px 0 8px;color:#adc2ff}p{line-height:1.7} .pill{font-size:12px;color:#a7c3ff;background:#223454;border-radius:100px;padding:5px 10px;display:inline-block;margin:3px 5px 3px 0}.toolbar{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:12px 0}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.stat{padding:13px;background:#19273d;border-radius:12px;text-align:center}.stat b{font-size:22px;display:block}.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:13px}.steps{padding-left:20px;line-height:1.7}.steps li{margin-bottom:10px}.hint{border-left:3px solid #7797f8;padding:8px 12px;background:#192840;line-height:1.65}.empty{text-align:center;padding:40px 12px;color:#a8b5c8}details{margin-top:13px}summary{cursor:pointer;color:#b6caff}.foot{font-size:12px;color:#99a8bd;padding:20px 0}.question-list{display:grid;gap:8px}.qrow{text-align:left;width:100%;padding:15px;line-height:1.5}.qrow span{display:block;color:#9eaec7;font-size:12px;margin-top:4px}.tag{font-size:12px;color:#a9c3ff}.progress{height:7px;background:#29364b;border-radius:10px;overflow:hidden}.progress>div{height:100%;background:#6c93fa} @media(min-width:700px){.toolbar{grid-template-columns:2fr 1fr 1fr}} </style></head><body><header><div style="max-width:880px;margin:auto"><h1>✦ PM Interview Lab</h1><small>80 cases · Bilingual frameworks · Offline-first · No AI tokens</small></div></header><main class="wrap"><div class="nav" id="nav"></div><div id="app"></div><div class="foot">数据默认保存在本机浏览器；清除浏览器数据可能导致记录丢失。建议定期导出备份。题目为常见面试题型改编，答案为练习示范，不代表公司官方标准。</div></main><script>const DATA=[
+  {
+    "id": 1,
+    "category": "产品设计 Product Design",
+    "question": "为大学新生设计一款融入新城市的产品",
+    "english": "Design a product for college students new to a city",
+    "frameworkEN": "Clarify → Segment → Pain → Prioritize → Solutions → MVP → Metrics",
+    "frameworkZH": "澄清目标与限制 → 细分用户 → 找出场景痛点 → 按频次/严重度/可解决性排序 → 提出不同方案 → 定义 MVP → 设定北极星与护栏指标",
+    "steps": [
+      "1. 框定问题 / Frame: 针对「为大学新生设计一款融入新城市的产品」，先澄清目标用户、成功定义、时间范围和限制。",
+      "2. 结构化拆解 / Decompose: 先选一个具体用户群，不要说“所有用户”；画出触发→发现→行动→反馈的用户旅程，找出高频且高痛的一个摩擦点，提出低成本、中成本和高创新三类方案。",
+      "3. 做出选择 / Decide: 比较至少两种解释或方案，给出取舍依据、风险和最小验证方案。",
+      "4. 量化验证 / Measure: 北极星：目标用户每周成功完成核心任务数；漏斗：发现→开始→完成；护栏：投诉率与留存。"
+    ],
+    "detail": "先选一个具体用户群，不要说“所有用户”；画出触发→发现→行动→反馈的用户旅程，找出高频且高痛的一个摩擦点，提出低成本、中成本和高创新三类方案。",
+    "metrics": "北极星：目标用户每周成功完成核心任务数；漏斗：发现→开始→完成；护栏：投诉率与留存。",
+    "pitfalls": [
+      "直接跳到功能或结论，没有澄清业务目标与用户范围。",
+      "只报一个大盘平均值，没有分群、漏斗和基线。",
+      "没有明确北极星指标、护栏指标与折损点。",
+      "把假设数据当事实，忽略验证成本、风险和 ROI。"
+    ],
+    "answer": "For the question “Design a product for college students new to a city,” I would clarify the goal, focus on one underserved segment, map its journey, prioritize a frequent and painful unmet need, compare three solutions, and launch a narrow MVP with measurable success criteria. I would compare at least two alternatives, state my assumptions, and choose a focused first step. Success would be measured through a clear north star, funnel conversion, guardrails, and an ROI estimate based on explicit assumptions.",
+    "followup": "如果你的首选方案无法提升核心指标，你如何区分是用户需求判断错误、方案执行问题，还是实验设计问题？"
+  },
+  {
+    "id": 2,
+    "category": "产品设计 Product Design",
+    "question": "如何改善 Google Maps 的通勤体验",
+    "english": "Improve Google Maps for commuters",
+    "frameworkEN": "Clarify → Segment → Pain → Prioritize → Solutions → MVP → Metrics",
+    "frameworkZH": "澄清目标与限制 → 细分用户 → 找出场景痛点 → 按频次/严重度/可解决性排序 → 提出不同方案 → 定义 MVP → 设定北极星与护栏指标",
+    "steps": [
+      "1. 框定问题 / Frame: 针对「如何改善 Google Maps 的通勤体验」，先澄清目标用户、成功定义、时间范围和限制。",
+      "2. 结构化拆解 / Decompose: 先选一个具体用户群，不要说“所有用户”；画出触发→发现→行动→反馈的用户旅程，找出高频且高痛的一个摩擦点，提出低成本、中成本和高创新三类方案。",
+      "3. 做出选择 / Decide: 比较至少两种解释或方案，给出取舍依据、风险和最小验证方案。",
+      "4. 量化验证 / Measure: 北极星：目标用户每周成功完成核心任务数；漏斗：发现→开始→完成；护栏：投诉率与留存。"
+    ],
+    "detail": "先选一个具体用户群，不要说“所有用户”；画出触发→发现→行动→反馈的用户旅程，找出高频且高痛的一个摩擦点，提出低成本、中成本和高创新三类方案。",
+    "metrics": "北极星：目标用户每周成功完成核心任务数；漏斗：发现→开始→完成；护栏：投诉率与留存。",
+    "pitfalls": [
+      "直接跳到功能或结论，没有澄清业务目标与用户范围。",
+      "只报一个大盘平均值，没有分群、漏斗和基线。",
+      "没有明确北极星指标、护栏指标与折损点。",
+      "把假设数据当事实，忽略验证成本、风险和 ROI。"
+    ],
+    "answer": "For the question “Improve Google Maps for commuters,” I would clarify the goal, focus on one underserved segment, map its journey, prioritize a frequent and painful unmet need, compare three solutions, and launch a narrow MVP with measurable success criteria. I would compare at least two alternatives, state my assumptions, and choose a focused first step. Success would be measured through a clear north star, funnel conversion, guardrails, and an ROI estimate based on explicit assumptions.",
+    "followup": "如果你的首选方案无法提升核心指标，你如何区分是用户需求判断错误、方案执行问题，还是实验设计问题？"
+  },
+  {
+    "id": 3,
+    "category": "产品设计 Product Design",
+    "question": "为老年人设计线上购物体验",
+    "english": "Design online shopping for seniors",
+    "frameworkEN": "Clarify → Segment → Pain → Prioritize → Solutions → MVP → Metrics",
+    "frameworkZH": "澄清目标与限制 → 细分用户 → 找出场景痛点 → 按频次/严重度/可解决性排序 → 提出不同方案 → 定义 MVP → 设定北极星与护栏指标",
+    "steps": [
+      "1. 框定问题 / Frame: 针对「为老年人设计线上购物体验」，先澄清目标用户、成功定义、时间范围和限制。",
+      "2. 结构化拆解 / Decompose: 先选一个具体用户群，不要说“所有用户”；画出触发→发现→行动→反馈的用户旅程，找出高频且高痛的一个摩擦点，提出低成本、中成本和高创新三类方案。",
+      "3. 做出选择 / Decide: 比较至少两种解释或方案，给出取舍依据、风险和最小验证方案。",
+      "4. 量化验证 / Measure: 北极星：目标用户每周成功完成核心任务数；漏斗：发现→开始→完成；护栏：投诉率与留存。"
+    ],
+    "detail": "先选一个具体用户群，不要说“所有用户”；画出触发→发现→行动→反馈的用户旅程，找出高频且高痛的一个摩擦点，提出低成本、中成本和高创新三类方案。",
+    "metrics": "北极星：目标用户每周成功完成核心任务数；漏斗：发现→开始→完成；护栏：投诉率与留存。",
+    "pitfalls": [
+      "直接跳到功能或结论，没有澄清业务目标与用户范围。",
+      "只报一个大盘平均值，没有分群、漏斗和基线。",
+      "没有明确北极星指标、护栏指标与折损点。",
+      "把假设数据当事实，忽略验证成本、风险和 ROI。"
+    ],
+    "answer": "For the question “Design online shopping for seniors,” I would clarify the goal, focus on one underserved segment, map its journey, prioritize a frequent and painful unmet need, compare three solutions, and launch a narrow MVP with measurable success criteria. I would compare at least two alternatives, state my assumptions, and choose a focused first step. Success would be measured through a clear north star, funnel conversion, guardrails, and an ROI estimate based on explicit assumptions.",
+    "followup": "如果你的首选方案无法提升核心指标，你如何区分是用户需求判断错误、方案执行问题，还是实验设计问题？"
+  },
+  {
+    "id": 4,
+    "category": "产品设计 Product Design",
+    "question": "如何改善 Spotify 的播客发现",
+    "english": "Improve podcast discovery in Spotify",
+    "frameworkEN": "Clarify → Segment → Pain → Prioritize → Solutions → MVP → Metrics",
+    "frameworkZH": "澄清目标与限制 → 细分用户 → 找出场景痛点 → 按频次/严重度/可解决性排序 → 提出不同方案 → 定义 MVP → 设定北极星与护栏指标",
+    "steps": [
+      "1. 框定问题 / Frame: 针对「如何改善 Spotify 的播客发现」，先澄清目标用户、成功定义、时间范围和限制。",
+      "2. 结构化拆解 / Decompose: 先选一个具体用户群，不要说“所有用户”；画出触发→发现→行动→反馈的用户旅程，找出高频且高痛的一个摩擦点，提出低成本、中成本和高创新三类方案。",
+      "3. 做出选择 / Decide: 比较至少两种解释或方案，给出取舍依据、风险和最小验证方案。",
+      "4. 量化验证 / Measure: 北极星：目标用户每周成功完成核心任务数；漏斗：发现→开始→完成；护栏：投诉率与留存。"
+    ],
+    "detail": "先选一个具体用户群，不要说“所有用户”；画出触发→发现→行动→反馈的用户旅程，找出高频且高痛的一个摩擦点，提出低成本、中成本和高创新三类方案。",
+    "metrics": "北极星：目标用户每周成功完成核心任务数；漏斗：发现→开始→完成；护栏：投诉率与留存。",
+    "pitfalls": [
+      "直接跳到功能或结论，没有澄清业务目标与用户范围。",
+      "只报一个大盘平均值，没有分群、漏斗和基线。",
+      "没有明确北极星指标、护栏指标与折损点。",
+      "把假设数据当事实，忽略验证成本、风险和 ROI。"
+    ],
+    "answer": "For the question “Improve podcast discovery in Spotify,” I would clarify the goal, focus on one underserved segment, map its journey, prioritize a frequent and painful unmet need, compare three solutions, and launch a narrow MVP with measurable success criteria. I would compare at least two alternatives, state my assumptions, and choose a focused first step. Success would be measured through a clear north star, funnel conversion, guardrails, and an ROI estimate based on explicit assumptions.",
+    "followup": "如果你的首选方案无法提升核心指标，你如何区分是用户需求判断错误、方案执行问题，还是实验设计问题？"
+  },
+  {
+    "id": 5,
+    "category": "产品设计 Product Design",
+    "question": "为远程团队设计 Google Calendar 新功能",
+    "english": "Improve Google Calendar for remote teams",
+    "frameworkEN": "Clarify → Segment → Pain → Prioritize → Solutions → MVP → Metrics",
+    "frameworkZH": "澄清目标与限制 → 细分用户 → 找出场景痛点 → 按频次/严重度/可解决性排序 → 提出不同方案 → 定义 MVP → 设定北极星与护栏指标",
+    "steps": [
+      "1. 框定问题 / Frame: 针对「为远程团队设计 Google Calendar 新功能」，先澄清目标用户、成功定义、时间范围和限制。",
+      "2. 结构化拆解 / Decompose: 先选一个具体用户群，不要说“所有用户”；画出触发→发现→行动→反馈的用户旅程，找出高频且高痛的一个摩擦点，提出低成本、中成本和高创新三类方案。",
+      "3. 做出选择 / Decide: 比较至少两种解释或方案，给出取舍依据、风险和最小验证方案。",
+      "4. 量化验证 / Measure: 北极星：目标用户每周成功完成核心任务数；漏斗：发现→开始→完成；护栏：投诉率与留存。"
+    ],
+    "detail": "先选一个具体用户群，不要说“所有用户”；画出触发→发现→行动→反馈的用户旅程，找出高频且高痛的一个摩擦点，提出低成本、中成本和高创新三类方案。",
+    "metrics": "北极星：目标用户每周成功完成核心任务数；漏斗：发现→开始→完成；护栏：投诉率与留存。",
+    "pitfalls": [
+      "直接跳到功能或结论，没有澄清业务目标与用户范围。",
+      "只报一个大盘平均值，没有分群、漏斗和基线。",
+      "没有明确北极星指标、护栏指标与折损点。",
+      "把假设数据当事实，忽略验证成本、风险和 ROI。"
+    ],
+    "answer": "For the question “Improve Google Calendar for remote teams,” I would clarify the goal, focus on one underserved segment, map its journey, prioritize a frequent and painful unmet need, compare three solutions, and launch a narrow MVP with measurable success criteria. I would compare at least two alternatives, state my assumptions, and choose a focused first step. Success would be measured through a clear north star, funnel conversion, guardrails, and an ROI estimate based on explicit assumptions.",
+    "followup": "如果你的首选方案无法提升核心指标，你如何区分是用户需求判断错误、方案执行问题，还是实验设计问题？"
+  },
+  {
+    "id": 6,
+    "category": "产品设计 Product Design",
+    "question": "设计减少家庭食物浪费的产品",
+    "english": "Reduce household food waste",
+    "frameworkEN": "Clarify → Segment → Pain → Prioritize → Solutions → MVP → Metrics",
+    "frameworkZH": "澄清目标与限制 → 细分用户 → 找出场景痛点 → 按频次/严重度/可解决性排序 → 提出不同方案 → 定义 MVP → 设定北极星与护栏指标",
+    "steps": [
+      "1. 框定问题 / Frame: 针对「设计减少家庭食物浪费的产品」，先澄清目标用户、成功定义、时间范围和限制。",
+      "2. 结构化拆解 / Decompose: 先选一个具体用户群，不要说“所有用户”；画出触发→发现→行动→反馈的用户旅程，找出高频且高痛的一个摩擦点，提出低成本、中成本和高创新三类方案。",
+      "3. 做出选择 / Decide: 比较至少两种解释或方案，给出取舍依据、风险和最小验证方案。",
+      "4. 量化验证 / Measure: 北极星：目标用户每周成功完成核心任务数；漏斗：发现→开始→完成；护栏：投诉率与留存。"
+    ],
+    "detail": "先选一个具体用户群，不要说“所有用户”；画出触发→发现→行动→反馈的用户旅程，找出高频且高痛的一个摩擦点，提出低成本、中成本和高创新三类方案。",
+    "metrics": "北极星：目标用户每周成功完成核心任务数；漏斗：发现→开始→完成；护栏：投诉率与留存。",
+    "pitfalls": [
+      "直接跳到功能或结论，没有澄清业务目标与用户范围。",
+      "只报一个大盘平均值，没有分群、漏斗和基线。",
+      "没有明确北极星指标、护栏指标与折损点。",
+      "把假设数据当事实，忽略验证成本、风险和 ROI。"
+    ],
+    "answer": "For the question “Reduce household food waste,” I would clarify the goal, focus on one underserved segment, map its journey, prioritize a frequent and painful unmet need, compare three solutions, and launch a narrow MVP with measurable success criteria. I would compare at least two alternatives, state my assumptions, and choose a focused first step. Success would be measured through a clear north star, funnel conversion, guardrails, and an ROI estimate based on explicit assumptions.",
+    "followup": "如果你的首选方案无法提升核心指标，你如何区分是用户需求判断错误、方案执行问题，还是实验设计问题？"
+  },
+  {
+    "id": 7,
+    "category": "产品设计 Product Design",
+    "question": "如何改善 LinkedIn 的求职体验",
+    "english": "Improve LinkedIn job search",
+    "frameworkEN": "Clarify → Segment → Pain → Prioritize → Solutions → MVP → Metrics",
+    "frameworkZH": "澄清目标与限制 → 细分用户 → 找出场景痛点 → 按频次/严重度/可解决性排序 → 提出不同方案 → 定义 MVP → 设定北极星与护栏指标",
+    "steps": [
+      "1. 框定问题 / Frame: 针对「如何改善 LinkedIn 的求职体验」，先澄清目标用户、成功定义、时间范围和限制。",
+      "2. 结构化拆解 / Decompose: 先选一个具体用户群，不要说“所有用户”；画出触发→发现→行动→反馈的用户旅程，找出高频且高痛的一个摩擦点，提出低成本、中成本和高创新三类方案。",
+      "3. 做出选择 / Decide: 比较至少两种解释或方案，给出取舍依据、风险和最小验证方案。",
+      "4. 量化验证 / Measure: 北极星：目标用户每周成功完成核心任务数；漏斗：发现→开始→完成；护栏：投诉率与留存。"
+    ],
+    "detail": "先选一个具体用户群，不要说“所有用户”；画出触发→发现→行动→反馈的用户旅程，找出高频且高痛的一个摩擦点，提出低成本、中成本和高创新三类方案。",
+    "metrics": "北极星：目标用户每周成功完成核心任务数；漏斗：发现→开始→完成；护栏：投诉率与留存。",
+    "pitfalls": [
+      "直接跳到功能或结论，没有澄清业务目标与用户范围。",
+      "只报一个大盘平均值，没有分群、漏斗和基线。",
+      "没有明确北极星指标、护栏指标与折损点。",
+      "把假设数据当事实，忽略验证成本、风险和 ROI。"
+    ],
+    "answer": "For the question “Improve LinkedIn job search,” I would clarify the goal, focus on one underserved segment, map its journey, prioritize a frequent and painful unmet need, compare three solutions, and launch a narrow MVP with measurable success criteria. I would compare at least two alternatives, state my assumptions, and choose a focused first step. Success would be measured through a clear north star, funnel conversion, guardrails, and an ROI estimate based on explicit assumptions.",
+    "followup": "如果你的首选方案无法提升核心指标，你如何区分是用户需求判断错误、方案执行问题，还是实验设计问题？"
+  },
+  {
+    "id": 8,
+    "category": "产品设计 Product Design",
+    "question": "为视障用户设计外卖订餐体验",
+    "english": "Design food ordering for visually impaired users",
+    "frameworkEN": "Clarify → Segment → Pain → Prioritize → Solutions → MVP → Metrics",
+    "frameworkZH": "澄清目标与限制 → 细分用户 → 找出场景痛点 → 按频次/严重度/可解决性排序 → 提出不同方案 → 定义 MVP → 设定北极星与护栏指标",
+    "steps": [
+      "1. 框定问题 / Frame: 针对「为视障用户设计外卖订餐体验」，先澄清目标用户、成功定义、时间范围和限制。",
+      "2. 结构化拆解 / Decompose: 先选一个具体用户群，不要说“所有用户”；画出触发→发现→行动→反馈的用户旅程，找出高频且高痛的一个摩擦点，提出低成本、中成本和高创新三类方案。",
+      "3. 做出选择 / Decide: 比较至少两种解释或方案，给出取舍依据、风险和最小验证方案。",
+      "4. 量化验证 / Measure: 北极星：目标用户每周成功完成核心任务数；漏斗：发现→开始→完成；护栏：投诉率与留存。"
+    ],
+    "detail": "先选一个具体用户群，不要说“所有用户”；画出触发→发现→行动→反馈的用户旅程，找出高频且高痛的一个摩擦点，提出低成本、中成本和高创新三类方案。",
+    "metrics": "北极星：目标用户每周成功完成核心任务数；漏斗：发现→开始→完成；护栏：投诉率与留存。",
+    "pitfalls": [
+      "直接跳到功能或结论，没有澄清业务目标与用户范围。",
+      "只报一个大盘平均值，没有分群、漏斗和基线。",
+      "没有明确北极星指标、护栏指标与折损点。",
+      "把假设数据当事实，忽略验证成本、风险和 ROI。"
+    ],
+    "answer": "For the question “Design food ordering for visually impaired users,” I would clarify the goal, focus on one underserved segment, map its journey, prioritize a frequent and painful unmet need, compare three solutions, and launch a narrow MVP with measurable success criteria. I would compare at least two alternatives, state my assumptions, and choose a focused first step. Success would be measured through a clear north star, funnel conversion, guardrails, and an ROI estimate based on explicit assumptions.",
+    "followup": "如果你的首选方案无法提升核心指标，你如何区分是用户需求判断错误、方案执行问题，还是实验设计问题？"
+  },
+  {
+    "id": 9,
+    "category": "产品设计 Product Design",
+    "question": "如何改善 YouTube 新创作者的冷启动",
+    "english": "Improve YouTube creator onboarding",
+    "frameworkEN": "Clarify → Segment → Pain → Prioritize → Solutions → MVP → Metrics",
+    "frameworkZH": "澄清目标与限制 → 细分用户 → 找出场景痛点 → 按频次/严重度/可解决性排序 → 提出不同方案 → 定义 MVP → 设定北极星与护栏指标",
+    "steps": [
+      "1. 框定问题 / Frame: 针对「如何改善 YouTube 新创作者的冷启动」，先澄清目标用户、成功定义、时间范围和限制。",
+      "2. 结构化拆解 / Decompose: 先选一个具体用户群，不要说“所有用户”；画出触发→发现→行动→反馈的用户旅程，找出高频且高痛的一个摩擦点，提出低成本、中成本和高创新三类方案。",
+      "3. 做出选择 / Decide: 比较至少两种解释或方案，给出取舍依据、风险和最小验证方案。",
+      "4. 量化验证 / Measure: 北极星：目标用户每周成功完成核心任务数；漏斗：发现→开始→完成；护栏：投诉率与留存。"
+    ],
+    "detail": "先选一个具体用户群，不要说“所有用户”；画出触发→发现→行动→反馈的用户旅程，找出高频且高痛的一个摩擦点，提出低成本、中成本和高创新三类方案。",
+    "metrics": "北极星：目标用户每周成功完成核心任务数；漏斗：发现→开始→完成；护栏：投诉率与留存。",
+    "pitfalls": [
+      "直接跳到功能或结论，没有澄清业务目标与用户范围。",
+      "只报一个大盘平均值，没有分群、漏斗和基线。",
+      "没有明确北极星指标、护栏指标与折损点。",
+      "把假设数据当事实，忽略验证成本、风险和 ROI。"
+    ],
+    "answer": "For the question “Improve YouTube creator onboarding,” I would clarify the goal, focus on one underserved segment, map its journey, prioritize a frequent and painful unmet need, compare three solutions, and launch a narrow MVP with measurable success criteria. I would compare at least two alternatives, state my assumptions, and choose a focused first step. Success would be measured through a clear north star, funnel conversion, guardrails, and an ROI estimate based on explicit assumptions.",
+    "followup": "如果你的首选方案无法提升核心指标，你如何区分是用户需求判断错误、方案执行问题，还是实验设计问题？"
+  },
+  {
+    "id": 10,
+    "category": "产品设计 Product Design",
+    "question": "设计帮助大学生管理个人财务的产品",
+    "english": "Design personal finance for students",
+    "frameworkEN": "Clarify → Segment → Pain → Prioritize → Solutions → MVP → Metrics",
+    "frameworkZH": "澄清目标与限制 → 细分用户 → 找出场景痛点 → 按频次/严重度/可解决性排序 → 提出不同方案 → 定义 MVP → 设定北极星与护栏指标",
+    "steps": [
+      "1. 框定问题 / Frame: 针对「设计帮助大学生管理个人财务的产品」，先澄清目标用户、成功定义、时间范围和限制。",
+      "2. 结构化拆解 / Decompose: 先选一个具体用户群，不要说“所有用户”；画出触发→发现→行动→反馈的用户旅程，找出高频且高痛的一个摩擦点，提出低成本、中成本和高创新三类方案。",
+      "3. 做出选择 / Decide: 比较至少两种解释或方案，给出取舍依据、风险和最小验证方案。",
+      "4. 量化验证 / Measure: 北极星：目标用户每周成功完成核心任务数；漏斗：发现→开始→完成；护栏：投诉率与留存。"
+    ],
+    "detail": "先选一个具体用户群，不要说“所有用户”；画出触发→发现→行动→反馈的用户旅程，找出高频且高痛的一个摩擦点，提出低成本、中成本和高创新三类方案。",
+    "metrics": "北极星：目标用户每周成功完成核心任务数；漏斗：发现→开始→完成；护栏：投诉率与留存。",
+    "pitfalls": [
+      "直接跳到功能或结论，没有澄清业务目标与用户范围。",
+      "只报一个大盘平均值，没有分群、漏斗和基线。",
+      "没有明确北极星指标、护栏指标与折损点。",
+      "把假设数据当事实，忽略验证成本、风险和 ROI。"
+    ],
+    "answer": "For the question “Design personal finance for students,” I would clarify the goal, focus on one underserved segment, map its journey, prioritize a frequent and painful unmet need, compare three solutions, and launch a narrow MVP with measurable success criteria. I would compare at least two alternatives, state my assumptions, and choose a focused first step. Success would be measured through a clear north star, funnel conversion, guardrails, and an ROI estimate based on explicit assumptions.",
+    "followup": "如果你的首选方案无法提升核心指标，你如何区分是用户需求判断错误、方案执行问题，还是实验设计问题？"
+  },
+  {
+    "id": 11,
+    "category": "产品改进 Product Improvement",
+    "question": "如何改善 Instagram Stories",
+    "english": "Improve Instagram Stories",
+    "frameworkEN": "Goal → Journey → Friction → Options → Trade-offs → Test",
+    "frameworkZH": "明确业务目标 → 拆用户旅程和漏斗 → 找最大折损点 → 提出三种改善方案 → 比较影响与成本 → 实验验证",
+    "steps": [
+      "1. 框定问题 / Frame: 针对「如何改善 Instagram Stories」，先澄清目标用户、成功定义、时间范围和限制。",
+      "2. 结构化拆解 / Decompose: 先选一个具体用户群，不要说“所有用户”；画出触发→发现→行动→反馈的用户旅程，找出高频且高痛的一个摩擦点，提出低成本、中成本和高创新三类方案。",
+      "3. 做出选择 / Decide: 比较至少两种解释或方案，给出取舍依据、风险和最小验证方案。",
+      "4. 量化验证 / Measure: 北极星：目标用户每周成功完成核心任务数；漏斗：发现→开始→完成；护栏：投诉率与留存。"
+    ],
+    "detail": "先选一个具体用户群，不要说“所有用户”；画出触发→发现→行动→反馈的用户旅程，找出高频且高痛的一个摩擦点，提出低成本、中成本和高创新三类方案。",
+    "metrics": "北极星：目标用户每周成功完成核心任务数；漏斗：发现→开始→完成；护栏：投诉率与留存。",
+    "pitfalls": [
+      "直接跳到功能或结论，没有澄清业务目标与用户范围。",
+      "只报一个大盘平均值，没有分群、漏斗和基线。",
+      "没有明确北极星指标、护栏指标与折损点。",
+      "把假设数据当事实，忽略验证成本、风险和 ROI。"
+    ],
+    "answer": "For the question “Improve Instagram Stories,” I would clarify the goal, focus on one underserved segment, map its journey, prioritize a frequent and painful unmet need, compare three solutions, and launch a narrow MVP with measurable success criteria. I would compare at least two alternatives, state my assumptions, and choose a focused first step. Success would be measured through a clear north star, funnel conversion, guardrails, and an ROI estimate based on explicit assumptions.",
+    "followup": "如果你的首选方案无法提升核心指标，你如何区分是用户需求判断错误、方案执行问题，还是实验设计问题？"
+  },
+  {
+    "id": 12,
+    "category": "产品改进 Product Improvement",
+    "question": "如何提升 Slack 的跨团队协作",
+    "english": "Improve Slack cross-team collaboration",
+    "frameworkEN": "Goal → Journey → Friction → Options → Trade-offs → Test",
+    "frameworkZH": "明确业务目标 → 拆用户旅程和漏斗 → 找最大折损点 → 提出三种改善方案 → 比较影响与成本 → 实验验证",
+    "steps": [
+      "1. 框定问题 / Frame: 针对「如何提升 Slack 的跨团队协作」，先澄清目标用户、成功定义、时间范围和限制。",
+      "2. 结构化拆解 / Decompose: 先选一个具体用户群，不要说“所有用户”；画出触发→发现→行动→反馈的用户旅程，找出高频且高痛的一个摩擦点，提出低成本、中成本和高创新三类方案。",
+      "3. 做出选择 / Decide: 比较至少两种解释或方案，给出取舍依据、风险和最小验证方案。",
+      "4. 量化验证 / Measure: 北极星：目标用户每周成功完成核心任务数；漏斗：发现→开始→完成；护栏：投诉率与留存。"
+    ],
+    "detail": "先选一个具体用户群，不要说“所有用户”；画出触发→发现→行动→反馈的用户旅程，找出高频且高痛的一个摩擦点，提出低成本、中成本和高创新三类方案。",
+    "metrics": "北极星：目标用户每周成功完成核心任务数；漏斗：发现→开始→完成；护栏：投诉率与留存。",
+    "pitfalls": [
+      "直接跳到功能或结论，没有澄清业务目标与用户范围。",
+      "只报一个大盘平均值，没有分群、漏斗和基线。",
+      "没有明确北极星指标、护栏指标与折损点。",
+      "把假设数据当事实，忽略验证成本、风险和 ROI。"
+    ],
+    "answer": "For the question “Improve Slack cross-team collaboration,” I would clarify the goal, focus on one underserved segment, map its journey, prioritize a frequent and painful unmet need, compare three solutions, and launch a narrow MVP with measurable success criteria. I would compare at least two alternatives, state my assumptions, and choose a focused first step. Success would be measured through a clear north star, funnel conversion, guardrails, and an ROI estimate based on explicit assumptions.",
+    "followup": "如果你的首选方案无法提升核心指标，你如何区分是用户需求判断错误、方案执行问题，还是实验设计问题？"
+  },
+  {
+    "id": 13,
+    "category": "产品改进 Product Improvement",
+    "question": "如何改善 Uber 机场接机体验",
+    "english": "Improve Uber airport pickup",
+    "frameworkEN": "Goal → Journey → Friction → Options → Trade-offs → Test",
+    "frameworkZH": "明确业务目标 → 拆用户旅程和漏斗 → 找最大折损点 → 提出三种改善方案 → 比较影响与成本 → 实验验证",
+    "steps": [
+      "1. 框定问题 / Frame: 针对「如何改善 Uber 机场接机体验」，先澄清目标用户、成功定义、时间范围和限制。",
+      "2. 结构化拆解 / Decompose: 先选一个具体用户群，不要说“所有用户”；画出触发→发现→行动→反馈的用户旅程，找出高频且高痛的一个摩擦点，提出低成本、中成本和高创新三类方案。",
+      "3. 做出选择 / Decide: 比较至少两种解释或方案，给出取舍依据、风险和最小验证方案。",
+      "4. 量化验证 / Measure: 北极星：目标用户每周成功完成核心任务数；漏斗：发现→开始→完成；护栏：投诉率与留存。"
+    ],
+    "detail": "先选一个具体用户群，不要说“所有用户”；画出触发→发现→行动→反馈的用户旅程，找出高频且高痛的一个摩擦点，提出低成本、中成本和高创新三类方案。",
+    "metrics": "北极星：目标用户每周成功完成核心任务数；漏斗：发现→开始→完成；护栏：投诉率与留存。",
+    "pitfalls": [
+      "直接跳到功能或结论，没有澄清业务目标与用户范围。",
+      "只报一个大盘平均值，没有分群、漏斗和基线。",
+      "没有明确北极星指标、护栏指标与折损点。",
+      "把假设数据当事实，忽略验证成本、风险和 ROI。"
+    ],
+    "answer": "For the question “Improve Uber airport pickup,” I would clarify the goal, focus on one underserved segment, map its journey, prioritize a frequent and painful unmet need, compare three solutions, and launch a narrow MVP with measurable success criteria. I would compare at least two alternatives, state my assumptions, and choose a focused first step. Success would be measured through a clear north star, funnel conversion, guardrails, and an ROI estimate based on explicit assumptions.",
+    "followup": "如果你的首选方案无法提升核心指标，你如何区分是用户需求判断错误、方案执行问题，还是实验设计问题？"
+  },
+  {
+    "id": 14,
+    "category": "产品改进 Product Improvement",
+    "question": "如何改善 Airbnb 首次预订体验",
+    "english": "Improve first booking on Airbnb",
+    "frameworkEN": "Goal → Journey → Friction → Options → Trade-offs → Test",
+    "frameworkZH": "明确业务目标 → 拆用户旅程和漏斗 → 找最大折损点 → 提出三种改善方案 → 比较影响与成本 → 实验验证",
+    "steps": [
+      "1. 框定问题 / Frame: 针对「如何改善 Airbnb 首次预订体验」，先澄清目标用户、成功定义、时间范围和限制。",
+      "2. 结构化拆解 / Decompose: 先选一个具体用户群，不要说“所有用户”；画出触发→发现→行动→反馈的用户旅程，找出高频且高痛的一个摩擦点，提出低成本、中成本和高创新三类方案。",
+      "3. 做出选择 / Decide: 比较至少两种解释或方案，给出取舍依据、风险和最小验证方案。",
+      "4. 量化验证 / Measure: 北极星：目标用户每周成功完成核心任务数；漏斗：发现→开始→完成；护栏：投诉率与留存。"
+    ],
+    "detail": "先选一个具体用户群，不要说“所有用户”；画出触发→发现→行动→反馈的用户旅程，找出高频且高痛的一个摩擦点，提出低成本、中成本和高创新三类方案。",
+    "metrics": "北极星：目标用户每周成功完成核心任务数；漏斗：发现→开始→完成；护栏：投诉率与留存。",
+    "pitfalls": [
+      "直接跳到功能或结论，没有澄清业务目标与用户范围。",
+      "只报一个大盘平均值，没有分群、漏斗和基线。",
+      "没有明确北极星指标、护栏指标与折损点。",
+      "把假设数据当事实，忽略验证成本、风险和 ROI。"
+    ],
+    "answer": "For the question “Improve first booking on Airbnb,” I would clarify the goal, focus on one underserved segment, map its journey, prioritize a frequent and painful unmet need, compare three solutions, and launch a narrow MVP with measurable success criteria. I would compare at least two alternatives, state my assumptions, and choose a focused first step. Success would be measured through a clear north star, funnel conversion, guardrails, and an ROI estimate based on explicit assumptions.",
+    "followup": "如果你的首选方案无法提升核心指标，你如何区分是用户需求判断错误、方案执行问题，还是实验设计问题？"
+  },
+  {
+    "id": 15,
+    "category": "产品改进 Product Improvement",
+    "question": "如何提升 Notion 模板发现效率",
+    "english": "Improve Notion template discovery",
+    "frameworkEN": "Goal → Journey → Friction → Options → Trade-offs → Test",
+    "frameworkZH": "明确业务目标 → 拆用户旅程和漏斗 → 找最大折损点 → 提出三种改善方案 → 比较影响与成本 → 实验验证",
+    "steps": [
+      "1. 框定问题 / Frame: 针对「如何提升 Notion 模板发现效率」，先澄清目标用户、成功定义、时间范围和限制。",
+      "2. 结构化拆解 / Decompose: 先选一个具体用户群，不要说“所有用户”；画出触发→发现→行动→反馈的用户旅程，找出高频且高痛的一个摩擦点，提出低成本、中成本和高创新三类方案。",
+      "3. 做出选择 / Decide: 比较至少两种解释或方案，给出取舍依据、风险和最小验证方案。",
+      "4. 量化验证 / Measure: 北极星：目标用户每周成功完成核心任务数；漏斗：发现→开始→完成；护栏：投诉率与留存。"
+    ],
+    "detail": "先选一个具体用户群，不要说“所有用户”；画出触发→发现→行动→反馈的用户旅程，找出高频且高痛的一个摩擦点，提出低成本、中成本和高创新三类方案。",
+    "metrics": "北极星：目标用户每周成功完成核心任务数；漏斗：发现→开始→完成；护栏：投诉率与留存。",
+    "pitfalls": [
+      "直接跳到功能或结论，没有澄清业务目标与用户范围。",
+      "只报一个大盘平均值，没有分群、漏斗和基线。",
+      "没有明确北极星指标、护栏指标与折损点。",
+      "把假设数据当事实，忽略验证成本、风险和 ROI。"
+    ],
+    "answer": "For the question “Improve Notion template discovery,” I would clarify the goal, focus on one underserved segment, map its journey, prioritize a frequent and painful unmet need, compare three solutions, and launch a narrow MVP with measurable success criteria. I would compare at least two alternatives, state my assumptions, and choose a focused first step. Success would be measured through a clear north star, funnel conversion, guardrails, and an ROI estimate based on explicit assumptions.",
+    "followup": "如果你的首选方案无法提升核心指标，你如何区分是用户需求判断错误、方案执行问题，还是实验设计问题？"
+  },
+  {
+    "id": 16,
+    "category": "产品改进 Product Improvement",
+    "question": "如何改善 Duolingo 的学习持续性",
+    "english": "Improve Duolingo retention",
+    "frameworkEN": "Goal → Journey → Friction → Options → Trade-offs → Test",
+    "frameworkZH": "明确业务目标 → 拆用户旅程和漏斗 → 找最大折损点 → 提出三种改善方案 → 比较影响与成本 → 实验验证",
+    "steps": [
+      "1. 框定问题 / Frame: 针对「如何改善 Duolingo 的学习持续性」，先澄清目标用户、成功定义、时间范围和限制。",
+      "2. 结构化拆解 / Decompose: 先选一个具体用户群，不要说“所有用户”；画出触发→发现→行动→反馈的用户旅程，找出高频且高痛的一个摩擦点，提出低成本、中成本和高创新三类方案。",
+      "3. 做出选择 / Decide: 比较至少两种解释或方案，给出取舍依据、风险和最小验证方案。",
+      "4. 量化验证 / Measure: 北极星：目标用户每周成功完成核心任务数；漏斗：发现→开始→完成；护栏：投诉率与留存。"
+    ],
+    "detail": "先选一个具体用户群，不要说“所有用户”；画出触发→发现→行动→反馈的用户旅程，找出高频且高痛的一个摩擦点，提出低成本、中成本和高创新三类方案。",
+    "metrics": "北极星：目标用户每周成功完成核心任务数；漏斗：发现→开始→完成；护栏：投诉率与留存。",
+    "pitfalls": [
+      "直接跳到功能或结论，没有澄清业务目标与用户范围。",
+      "只报一个大盘平均值，没有分群、漏斗和基线。",
+      "没有明确北极星指标、护栏指标与折损点。",
+      "把假设数据当事实，忽略验证成本、风险和 ROI。"
+    ],
+    "answer": "For the question “Improve Duolingo retention,” I would clarify the goal, focus on one underserved segment, map its journey, prioritize a frequent and painful unmet need, compare three solutions, and launch a narrow MVP with measurable success criteria. I would compare at least two alternatives, state my assumptions, and choose a focused first step. Success would be measured through a clear north star, funnel conversion, guardrails, and an ROI estimate based on explicit assumptions.",
+    "followup": "如果你的首选方案无法提升核心指标，你如何区分是用户需求判断错误、方案执行问题，还是实验设计问题？"
+  },
+  {
+    "id": 17,
+    "category": "产品改进 Product Improvement",
+    "question": "如何改善 Amazon 商品评价体验",
+    "english": "Improve Amazon reviews",
+    "frameworkEN": "Goal → Journey → Friction → Options → Trade-offs → Test",
+    "frameworkZH": "明确业务目标 → 拆用户旅程和漏斗 → 找最大折损点 → 提出三种改善方案 → 比较影响与成本 → 实验验证",
+    "steps": [
+      "1. 框定问题 / Frame: 针对「如何改善 Amazon 商品评价体验」，先澄清目标用户、成功定义、时间范围和限制。",
+      "2. 结构化拆解 / Decompose: 先选一个具体用户群，不要说“所有用户”；画出触发→发现→行动→反馈的用户旅程，找出高频且高痛的一个摩擦点，提出低成本、中成本和高创新三类方案。",
+      "3. 做出选择 / Decide: 比较至少两种解释或方案，给出取舍依据、风险和最小验证方案。",
+      "4. 量化验证 / Measure: 北极星：目标用户每周成功完成核心任务数；漏斗：发现→开始→完成；护栏：投诉率与留存。"
+    ],
+    "detail": "先选一个具体用户群，不要说“所有用户”；画出触发→发现→行动→反馈的用户旅程，找出高频且高痛的一个摩擦点，提出低成本、中成本和高创新三类方案。",
+    "metrics": "北极星：目标用户每周成功完成核心任务数；漏斗：发现→开始→完成；护栏：投诉率与留存。",
+    "pitfalls": [
+      "直接跳到功能或结论，没有澄清业务目标与用户范围。",
+      "只报一个大盘平均值，没有分群、漏斗和基线。",
+      "没有明确北极星指标、护栏指标与折损点。",
+      "把假设数据当事实，忽略验证成本、风险和 ROI。"
+    ],
+    "answer": "For the question “Improve Amazon reviews,” I would clarify the goal, focus on one underserved segment, map its journey, prioritize a frequent and painful unmet need, compare three solutions, and launch a narrow MVP with measurable success criteria. I would compare at least two alternatives, state my assumptions, and choose a focused first step. Success would be measured through a clear north star, funnel conversion, guardrails, and an ROI estimate based on explicit assumptions.",
+    "followup": "如果你的首选方案无法提升核心指标，你如何区分是用户需求判断错误、方案执行问题，还是实验设计问题？"
+  },
+  {
+    "id": 18,
+    "category": "产品改进 Product Improvement",
+    "question": "如何改善 Google Drive 文件搜索",
+    "english": "Improve Google Drive search",
+    "frameworkEN": "Goal → Journey → Friction → Options → Trade-offs → Test",
+    "frameworkZH": "明确业务目标 → 拆用户旅程和漏斗 → 找最大折损点 → 提出三种改善方案 → 比较影响与成本 → 实验验证",
+    "steps": [
+      "1. 框定问题 / Frame: 针对「如何改善 Google Drive 文件搜索」，先澄清目标用户、成功定义、时间范围和限制。",
+      "2. 结构化拆解 / Decompose: 先选一个具体用户群，不要说“所有用户”；画出触发→发现→行动→反馈的用户旅程，找出高频且高痛的一个摩擦点，提出低成本、中成本和高创新三类方案。",
+      "3. 做出选择 / Decide: 比较至少两种解释或方案，给出取舍依据、风险和最小验证方案。",
+      "4. 量化验证 / Measure: 北极星：目标用户每周成功完成核心任务数；漏斗：发现→开始→完成；护栏：投诉率与留存。"
+    ],
+    "detail": "先选一个具体用户群，不要说“所有用户”；画出触发→发现→行动→反馈的用户旅程，找出高频且高痛的一个摩擦点，提出低成本、中成本和高创新三类方案。",
+    "metrics": "北极星：目标用户每周成功完成核心任务数；漏斗：发现→开始→完成；护栏：投诉率与留存。",
+    "pitfalls": [
+      "直接跳到功能或结论，没有澄清业务目标与用户范围。",
+      "只报一个大盘平均值，没有分群、漏斗和基线。",
+      "没有明确北极星指标、护栏指标与折损点。",
+      "把假设数据当事实，忽略验证成本、风险和 ROI。"
+    ],
+    "answer": "For the question “Improve Google Drive search,” I would clarify the goal, focus on one underserved segment, map its journey, prioritize a frequent and painful unmet need, compare three solutions, and launch a narrow MVP with measurable success criteria. I would compare at least two alternatives, state my assumptions, and choose a focused first step. Success would be measured through a clear north star, funnel conversion, guardrails, and an ROI estimate based on explicit assumptions.",
+    "followup": "如果你的首选方案无法提升核心指标，你如何区分是用户需求判断错误、方案执行问题，还是实验设计问题？"
+  },
+  {
+    "id": 19,
+    "category": "产品改进 Product Improvement",
+    "question": "如何提升 Zoom 会议后的行动跟进",
+    "english": "Improve Zoom meeting follow-up",
+    "frameworkEN": "Goal → Journey → Friction → Options → Trade-offs → Test",
+    "frameworkZH": "明确业务目标 → 拆用户旅程和漏斗 → 找最大折损点 → 提出三种改善方案 → 比较影响与成本 → 实验验证",
+    "steps": [
+      "1. 框定问题 / Frame: 针对「如何提升 Zoom 会议后的行动跟进」，先澄清目标用户、成功定义、时间范围和限制。",
+      "2. 结构化拆解 / Decompose: 先选一个具体用户群，不要说“所有用户”；画出触发→发现→行动→反馈的用户旅程，找出高频且高痛的一个摩擦点，提出低成本、中成本和高创新三类方案。",
+      "3. 做出选择 / Decide: 比较至少两种解释或方案，给出取舍依据、风险和最小验证方案。",
+      "4. 量化验证 / Measure: 北极星：目标用户每周成功完成核心任务数；漏斗：发现→开始→完成；护栏：投诉率与留存。"
+    ],
+    "detail": "先选一个具体用户群，不要说“所有用户”；画出触发→发现→行动→反馈的用户旅程，找出高频且高痛的一个摩擦点，提出低成本、中成本和高创新三类方案。",
+    "metrics": "北极星：目标用户每周成功完成核心任务数；漏斗：发现→开始→完成；护栏：投诉率与留存。",
+    "pitfalls": [
+      "直接跳到功能或结论，没有澄清业务目标与用户范围。",
+      "只报一个大盘平均值，没有分群、漏斗和基线。",
+      "没有明确北极星指标、护栏指标与折损点。",
+      "把假设数据当事实，忽略验证成本、风险和 ROI。"
+    ],
+    "answer": "For the question “Improve Zoom meeting follow-up,” I would clarify the goal, focus on one underserved segment, map its journey, prioritize a frequent and painful unmet need, compare three solutions, and launch a narrow MVP with measurable success criteria. I would compare at least two alternatives, state my assumptions, and choose a focused first step. Success would be measured through a clear north star, funnel conversion, guardrails, and an ROI estimate based on explicit assumptions.",
+    "followup": "如果你的首选方案无法提升核心指标，你如何区分是用户需求判断错误、方案执行问题，还是实验设计问题？"
+  },
+  {
+    "id": 20,
+    "category": "产品改进 Product Improvement",
+    "question": "如何改善 ChatGPT 的新用户上手",
+    "english": "Improve ChatGPT onboarding",
+    "frameworkEN": "Goal → Journey → Friction → Options → Trade-offs → Test",
+    "frameworkZH": "明确业务目标 → 拆用户旅程和漏斗 → 找最大折损点 → 提出三种改善方案 → 比较影响与成本 → 实验验证",
+    "steps": [
+      "1. 框定问题 / Frame: 针对「如何改善 ChatGPT 的新用户上手」，先澄清目标用户、成功定义、时间范围和限制。",
+      "2. 结构化拆解 / Decompose: 先选一个具体用户群，不要说“所有用户”；画出触发→发现→行动→反馈的用户旅程，找出高频且高痛的一个摩擦点，提出低成本、中成本和高创新三类方案。",
+      "3. 做出选择 / Decide: 比较至少两种解释或方案，给出取舍依据、风险和最小验证方案。",
+      "4. 量化验证 / Measure: 北极星：目标用户每周成功完成核心任务数；漏斗：发现→开始→完成；护栏：投诉率与留存。"
+    ],
+    "detail": "先选一个具体用户群，不要说“所有用户”；画出触发→发现→行动→反馈的用户旅程，找出高频且高痛的一个摩擦点，提出低成本、中成本和高创新三类方案。",
+    "metrics": "北极星：目标用户每周成功完成核心任务数；漏斗：发现→开始→完成；护栏：投诉率与留存。",
+    "pitfalls": [
+      "直接跳到功能或结论，没有澄清业务目标与用户范围。",
+      "只报一个大盘平均值，没有分群、漏斗和基线。",
+      "没有明确北极星指标、护栏指标与折损点。",
+      "把假设数据当事实，忽略验证成本、风险和 ROI。"
+    ],
+    "answer": "For the question “Improve ChatGPT onboarding,” I would clarify the goal, focus on one underserved segment, map its journey, prioritize a frequent and painful unmet need, compare three solutions, and launch a narrow MVP with measurable success criteria. I would compare at least two alternatives, state my assumptions, and choose a focused first step. Success would be measured through a clear north star, funnel conversion, guardrails, and an ROI estimate based on explicit assumptions.",
+    "followup": "如果你的首选方案无法提升核心指标，你如何区分是用户需求判断错误、方案执行问题，还是实验设计问题？"
+  },
+  {
+    "id": 21,
+    "category": "指标体系 Metrics",
+    "question": "如何定义 Spotify 的北极星指标",
+    "english": "Define Spotify north star metric",
+    "frameworkEN": "Value → North Star → Driver Tree → Guardrails → Segments",
+    "frameworkZH": "定义用户获得的核心价值 → 北极星指标 → 拆分可行动的驱动指标 → 护栏指标 → 分群与埋点",
+    "steps": [
+      "1. 框定问题 / Frame: 针对「如何定义 Spotify 的北极星指标」，先澄清目标用户、成功定义、时间范围和限制。",
+      "2. 结构化拆解 / Decompose: 先说明产品价值交付的“成功事件”，而不是把 DAU 当成万能北极星。将成功事件拆为活跃用户 × 人均任务次数 × 任务成功率，并按用户角色、生命周期和渠道分层。",
+      "3. 做出选择 / Decide: 比较至少两种解释或方案，给出取舍依据、风险和最小验证方案。",
+      "4. 量化验证 / Measure: 北极星：每周成功价值事件数；驱动：激活率、任务频次、成功率；护栏：留存、投诉率、成本。"
+    ],
+    "detail": "先说明产品价值交付的“成功事件”，而不是把 DAU 当成万能北极星。将成功事件拆为活跃用户 × 人均任务次数 × 任务成功率，并按用户角色、生命周期和渠道分层。",
+    "metrics": "北极星：每周成功价值事件数；驱动：激活率、任务频次、成功率；护栏：留存、投诉率、成本。",
+    "pitfalls": [
+      "直接跳到功能或结论，没有澄清业务目标与用户范围。",
+      "只报一个大盘平均值，没有分群、漏斗和基线。",
+      "没有明确北极星指标、护栏指标与折损点。",
+      "把假设数据当事实，忽略验证成本、风险和 ROI。"
+    ],
+    "answer": "For the question “Define Spotify north star metric,” I would define the user value event first, then choose a north star that captures repeated successful value delivery. I would decompose it into active users, frequency and success rate, with quality and retention guardrails. I would compare at least two alternatives, state my assumptions, and choose a focused first step. Success would be measured through a clear north star, funnel conversion, guardrails, and an ROI estimate based on explicit assumptions.",
+    "followup": "如果你的首选方案无法提升核心指标，你如何区分是用户需求判断错误、方案执行问题，还是实验设计问题？"
+  },
+  {
+    "id": 22,
+    "category": "指标体系 Metrics",
+    "question": "如何衡量 LinkedIn 推荐职位的成功",
+    "english": "Measure LinkedIn job recommendations",
+    "frameworkEN": "Value → North Star → Driver Tree → Guardrails → Segments",
+    "frameworkZH": "定义用户获得的核心价值 → 北极星指标 → 拆分可行动的驱动指标 → 护栏指标 → 分群与埋点",
+    "steps": [
+      "1. 框定问题 / Frame: 针对「如何衡量 LinkedIn 推荐职位的成功」，先澄清目标用户、成功定义、时间范围和限制。",
+      "2. 结构化拆解 / Decompose: 先说明产品价值交付的“成功事件”，而不是把 DAU 当成万能北极星。将成功事件拆为活跃用户 × 人均任务次数 × 任务成功率，并按用户角色、生命周期和渠道分层。",
+      "3. 做出选择 / Decide: 比较至少两种解释或方案，给出取舍依据、风险和最小验证方案。",
+      "4. 量化验证 / Measure: 北极星：每周成功价值事件数；驱动：激活率、任务频次、成功率；护栏：留存、投诉率、成本。"
+    ],
+    "detail": "先说明产品价值交付的“成功事件”，而不是把 DAU 当成万能北极星。将成功事件拆为活跃用户 × 人均任务次数 × 任务成功率，并按用户角色、生命周期和渠道分层。",
+    "metrics": "北极星：每周成功价值事件数；驱动：激活率、任务频次、成功率；护栏：留存、投诉率、成本。",
+    "pitfalls": [
+      "直接跳到功能或结论，没有澄清业务目标与用户范围。",
+      "只报一个大盘平均值，没有分群、漏斗和基线。",
+      "没有明确北极星指标、护栏指标与折损点。",
+      "把假设数据当事实，忽略验证成本、风险和 ROI。"
+    ],
+    "answer": "For the question “Measure LinkedIn job recommendations,” I would define the user value event first, then choose a north star that captures repeated successful value delivery. I would decompose it into active users, frequency and success rate, with quality and retention guardrails. I would compare at least two alternatives, state my assumptions, and choose a focused first step. Success would be measured through a clear north star, funnel conversion, guardrails, and an ROI estimate based on explicit assumptions.",
+    "followup": "如果你的首选方案无法提升核心指标，你如何区分是用户需求判断错误、方案执行问题，还是实验设计问题？"
+  },
+  {
+    "id": 23,
+    "category": "指标体系 Metrics",
+    "question": "如何衡量 Slack Connect 的成功",
+    "english": "Measure Slack Connect success",
+    "frameworkEN": "Value → North Star → Driver Tree → Guardrails → Segments",
+    "frameworkZH": "定义用户获得的核心价值 → 北极星指标 → 拆分可行动的驱动指标 → 护栏指标 → 分群与埋点",
+    "steps": [
+      "1. 框定问题 / Frame: 针对「如何衡量 Slack Connect 的成功」，先澄清目标用户、成功定义、时间范围和限制。",
+      "2. 结构化拆解 / Decompose: 先说明产品价值交付的“成功事件”，而不是把 DAU 当成万能北极星。将成功事件拆为活跃用户 × 人均任务次数 × 任务成功率，并按用户角色、生命周期和渠道分层。",
+      "3. 做出选择 / Decide: 比较至少两种解释或方案，给出取舍依据、风险和最小验证方案。",
+      "4. 量化验证 / Measure: 北极星：每周成功价值事件数；驱动：激活率、任务频次、成功率；护栏：留存、投诉率、成本。"
+    ],
+    "detail": "先说明产品价值交付的“成功事件”，而不是把 DAU 当成万能北极星。将成功事件拆为活跃用户 × 人均任务次数 × 任务成功率，并按用户角色、生命周期和渠道分层。",
+    "metrics": "北极星：每周成功价值事件数；驱动：激活率、任务频次、成功率；护栏：留存、投诉率、成本。",
+    "pitfalls": [
+      "直接跳到功能或结论，没有澄清业务目标与用户范围。",
+      "只报一个大盘平均值，没有分群、漏斗和基线。",
+      "没有明确北极星指标、护栏指标与折损点。",
+      "把假设数据当事实，忽略验证成本、风险和 ROI。"
+    ],
+    "answer": "For the question “Measure Slack Connect success,” I would define the user value event first, then choose a north star that captures repeated successful value delivery. I would decompose it into active users, frequency and success rate, with quality and retention guardrails. I would compare at least two alternatives, state my assumptions, and choose a focused first step. Success would be measured through a clear north star, funnel conversion, guardrails, and an ROI estimate based on explicit assumptions.",
+    "followup": "如果你的首选方案无法提升核心指标，你如何区分是用户需求判断错误、方案执行问题，还是实验设计问题？"
+  },
+  {
+    "id": 24,
+    "category": "指标体系 Metrics",
+    "question": "如何衡量 AI 搜索功能的成功",
+    "english": "Measure AI search success",
+    "frameworkEN": "Value → North Star → Driver Tree → Guardrails → Segments",
+    "frameworkZH": "定义用户获得的核心价值 → 北极星指标 → 拆分可行动的驱动指标 → 护栏指标 → 分群与埋点",
+    "steps": [
+      "1. 框定问题 / Frame: 针对「如何衡量 AI 搜索功能的成功」，先澄清目标用户、成功定义、时间范围和限制。",
+      "2. 结构化拆解 / Decompose: 先说明产品价值交付的“成功事件”，而不是把 DAU 当成万能北极星。将成功事件拆为活跃用户 × 人均任务次数 × 任务成功率，并按用户角色、生命周期和渠道分层。",
+      "3. 做出选择 / Decide: 比较至少两种解释或方案，给出取舍依据、风险和最小验证方案。",
+      "4. 量化验证 / Measure: 北极星：每周成功价值事件数；驱动：激活率、任务频次、成功率；护栏：留存、投诉率、成本。"
+    ],
+    "detail": "先说明产品价值交付的“成功事件”，而不是把 DAU 当成万能北极星。将成功事件拆为活跃用户 × 人均任务次数 × 任务成功率，并按用户角色、生命周期和渠道分层。",
+    "metrics": "北极星：每周成功价值事件数；驱动：激活率、任务频次、成功率；护栏：留存、投诉率、成本。",
+    "pitfalls": [
+      "直接跳到功能或结论，没有澄清业务目标与用户范围。",
+      "只报一个大盘平均值，没有分群、漏斗和基线。",
+      "没有明确北极星指标、护栏指标与折损点。",
+      "把假设数据当事实，忽略验证成本、风险和 ROI。"
+    ],
+    "answer": "For the question “Measure AI search success,” I would define the user value event first, then choose a north star that captures repeated successful value delivery. I would decompose it into active users, frequency and success rate, with quality and retention guardrails. I would compare at least two alternatives, state my assumptions, and choose a focused first step. Success would be measured through a clear north star, funnel conversion, guardrails, and an ROI estimate based on explicit assumptions.",
+    "followup": "如果你的首选方案无法提升核心指标，你如何区分是用户需求判断错误、方案执行问题，还是实验设计问题？"
+  },
+  {
+    "id": 25,
+    "category": "指标体系 Metrics",
+    "question": "如何衡量 B2B SaaS onboarding 成功",
+    "english": "Measure B2B SaaS onboarding",
+    "frameworkEN": "Value → North Star → Driver Tree → Guardrails → Segments",
+    "frameworkZH": "定义用户获得的核心价值 → 北极星指标 → 拆分可行动的驱动指标 → 护栏指标 → 分群与埋点",
+    "steps": [
+      "1. 框定问题 / Frame: 针对「如何衡量 B2B SaaS onboarding 成功」，先澄清目标用户、成功定义、时间范围和限制。",
+      "2. 结构化拆解 / Decompose: 先说明产品价值交付的“成功事件”，而不是把 DAU 当成万能北极星。将成功事件拆为活跃用户 × 人均任务次数 × 任务成功率，并按用户角色、生命周期和渠道分层。",
+      "3. 做出选择 / Decide: 比较至少两种解释或方案，给出取舍依据、风险和最小验证方案。",
+      "4. 量化验证 / Measure: 北极星：每周成功价值事件数；驱动：激活率、任务频次、成功率；护栏：留存、投诉率、成本。"
+    ],
+    "detail": "先说明产品价值交付的“成功事件”，而不是把 DAU 当成万能北极星。将成功事件拆为活跃用户 × 人均任务次数 × 任务成功率，并按用户角色、生命周期和渠道分层。",
+    "metrics": "北极星：每周成功价值事件数；驱动：激活率、任务频次、成功率；护栏：留存、投诉率、成本。",
+    "pitfalls": [
+      "直接跳到功能或结论，没有澄清业务目标与用户范围。",
+      "只报一个大盘平均值，没有分群、漏斗和基线。",
+      "没有明确北极星指标、护栏指标与折损点。",
+      "把假设数据当事实，忽略验证成本、风险和 ROI。"
+    ],
+    "answer": "For the question “Measure B2B SaaS onboarding,” I would define the user value event first, then choose a north star that captures repeated successful value delivery. I would decompose it into active users, frequency and success rate, with quality and retention guardrails. I would compare at least two alternatives, state my assumptions, and choose a focused first step. Success would be measured through a clear north star, funnel conversion, guardrails, and an ROI estimate based on explicit assumptions.",
+    "followup": "如果你的首选方案无法提升核心指标，你如何区分是用户需求判断错误、方案执行问题，还是实验设计问题？"
+  },
+  {
+    "id": 26,
+    "category": "指标体系 Metrics",
+    "question": "如何衡量 Instagram Reels 的成功",
+    "english": "Measure Instagram Reels success",
+    "frameworkEN": "Value → North Star → Driver Tree → Guardrails → Segments",
+    "frameworkZH": "定义用户获得的核心价值 → 北极星指标 → 拆分可行动的驱动指标 → 护栏指标 → 分群与埋点",
+    "steps": [
+      "1. 框定问题 / Frame: 针对「如何衡量 Instagram Reels 的成功」，先澄清目标用户、成功定义、时间范围和限制。",
+      "2. 结构化拆解 / Decompose: 先说明产品价值交付的“成功事件”，而不是把 DAU 当成万能北极星。将成功事件拆为活跃用户 × 人均任务次数 × 任务成功率，并按用户角色、生命周期和渠道分层。",
+      "3. 做出选择 / Decide: 比较至少两种解释或方案，给出取舍依据、风险和最小验证方案。",
+      "4. 量化验证 / Measure: 北极星：每周成功价值事件数；驱动：激活率、任务频次、成功率；护栏：留存、投诉率、成本。"
+    ],
+    "detail": "先说明产品价值交付的“成功事件”，而不是把 DAU 当成万能北极星。将成功事件拆为活跃用户 × 人均任务次数 × 任务成功率，并按用户角色、生命周期和渠道分层。",
+    "metrics": "北极星：每周成功价值事件数；驱动：激活率、任务频次、成功率；护栏：留存、投诉率、成本。",
+    "pitfalls": [
+      "直接跳到功能或结论，没有澄清业务目标与用户范围。",
+      "只报一个大盘平均值，没有分群、漏斗和基线。",
+      "没有明确北极星指标、护栏指标与折损点。",
+      "把假设数据当事实，忽略验证成本、风险和 ROI。"
+    ],
+    "answer": "For the question “Measure Instagram Reels success,” I would define the user value event first, then choose a north star that captures repeated successful value delivery. I would decompose it into active users, frequency and success rate, with quality and retention guardrails. I would compare at least two alternatives, state my assumptions, and choose a focused first step. Success would be measured through a clear north star, funnel conversion, guardrails, and an ROI estimate based on explicit assumptions.",
+    "followup": "如果你的首选方案无法提升核心指标，你如何区分是用户需求判断错误、方案执行问题，还是实验设计问题？"
+  },
+  {
+    "id": 27,
+    "category": "指标体系 Metrics",
+    "question": "如何衡量电商收藏夹的成功",
+    "english": "Measure ecommerce wishlist success",
+    "frameworkEN": "Value → North Star → Driver Tree → Guardrails → Segments",
+    "frameworkZH": "定义用户获得的核心价值 → 北极星指标 → 拆分可行动的驱动指标 → 护栏指标 → 分群与埋点",
+    "steps": [
+      "1. 框定问题 / Frame: 针对「如何衡量电商收藏夹的成功」，先澄清目标用户、成功定义、时间范围和限制。",
+      "2. 结构化拆解 / Decompose: 先说明产品价值交付的“成功事件”，而不是把 DAU 当成万能北极星。将成功事件拆为活跃用户 × 人均任务次数 × 任务成功率，并按用户角色、生命周期和渠道分层。",
+      "3. 做出选择 / Decide: 比较至少两种解释或方案，给出取舍依据、风险和最小验证方案。",
+      "4. 量化验证 / Measure: 北极星：每周成功价值事件数；驱动：激活率、任务频次、成功率；护栏：留存、投诉率、成本。"
+    ],
+    "detail": "先说明产品价值交付的“成功事件”，而不是把 DAU 当成万能北极星。将成功事件拆为活跃用户 × 人均任务次数 × 任务成功率，并按用户角色、生命周期和渠道分层。",
+    "metrics": "北极星：每周成功价值事件数；驱动：激活率、任务频次、成功率；护栏：留存、投诉率、成本。",
+    "pitfalls": [
+      "直接跳到功能或结论，没有澄清业务目标与用户范围。",
+      "只报一个大盘平均值，没有分群、漏斗和基线。",
+      "没有明确北极星指标、护栏指标与折损点。",
+      "把假设数据当事实，忽略验证成本、风险和 ROI。"
+    ],
+    "answer": "For the question “Measure ecommerce wishlist success,” I would define the user value event first, then choose a north star that captures repeated successful value delivery. I would decompose it into active users, frequency and success rate, with quality and retention guardrails. I would compare at least two alternatives, state my assumptions, and choose a focused first step. Success would be measured through a clear north star, funnel conversion, guardrails, and an ROI estimate based on explicit assumptions.",
+    "followup": "如果你的首选方案无法提升核心指标，你如何区分是用户需求判断错误、方案执行问题，还是实验设计问题？"
+  },
+  {
+    "id": 28,
+    "category": "指标体系 Metrics",
+    "question": "如何衡量 AI Agent 任务完成质量",
+    "english": "Measure AI agent task success",
+    "frameworkEN": "Value → North Star → Driver Tree → Guardrails → Segments",
+    "frameworkZH": "定义用户获得的核心价值 → 北极星指标 → 拆分可行动的驱动指标 → 护栏指标 → 分群与埋点",
+    "steps": [
+      "1. 框定问题 / Frame: 针对「如何衡量 AI Agent 任务完成质量」，先澄清目标用户、成功定义、时间范围和限制。",
+      "2. 结构化拆解 / Decompose: 先说明产品价值交付的“成功事件”，而不是把 DAU 当成万能北极星。将成功事件拆为活跃用户 × 人均任务次数 × 任务成功率，并按用户角色、生命周期和渠道分层。",
+      "3. 做出选择 / Decide: 比较至少两种解释或方案，给出取舍依据、风险和最小验证方案。",
+      "4. 量化验证 / Measure: 北极星：每周成功价值事件数；驱动：激活率、任务频次、成功率；护栏：留存、投诉率、成本。"
+    ],
+    "detail": "先说明产品价值交付的“成功事件”，而不是把 DAU 当成万能北极星。将成功事件拆为活跃用户 × 人均任务次数 × 任务成功率，并按用户角色、生命周期和渠道分层。",
+    "metrics": "北极星：每周成功价值事件数；驱动：激活率、任务频次、成功率；护栏：留存、投诉率、成本。",
+    "pitfalls": [
+      "直接跳到功能或结论，没有澄清业务目标与用户范围。",
+      "只报一个大盘平均值，没有分群、漏斗和基线。",
+      "没有明确北极星指标、护栏指标与折损点。",
+      "把假设数据当事实，忽略验证成本、风险和 ROI。"
+    ],
+    "answer": "For the question “Measure AI agent task success,” I would define the user value event first, then choose a north star that captures repeated successful value delivery. I would decompose it into active users, frequency and success rate, with quality and retention guardrails. I would compare at least two alternatives, state my assumptions, and choose a focused first step. Success would be measured through a clear north star, funnel conversion, guardrails, and an ROI estimate based on explicit assumptions.",
+    "followup": "如果你的首选方案无法提升核心指标，你如何区分是用户需求判断错误、方案执行问题，还是实验设计问题？"
+  },
+  {
+    "id": 29,
+    "category": "指标体系 Metrics",
+    "question": "如何为双边市场设计指标体系",
+    "english": "Design marketplace metrics",
+    "frameworkEN": "Value → North Star → Driver Tree → Guardrails → Segments",
+    "frameworkZH": "定义用户获得的核心价值 → 北极星指标 → 拆分可行动的驱动指标 → 护栏指标 → 分群与埋点",
+    "steps": [
+      "1. 框定问题 / Frame: 针对「如何为双边市场设计指标体系」，先澄清目标用户、成功定义、时间范围和限制。",
+      "2. 结构化拆解 / Decompose: 先说明产品价值交付的“成功事件”，而不是把 DAU 当成万能北极星。将成功事件拆为活跃用户 × 人均任务次数 × 任务成功率，并按用户角色、生命周期和渠道分层。",
+      "3. 做出选择 / Decide: 比较至少两种解释或方案，给出取舍依据、风险和最小验证方案。",
+      "4. 量化验证 / Measure: 北极星：每周成功价值事件数；驱动：激活率、任务频次、成功率；护栏：留存、投诉率、成本。"
+    ],
+    "detail": "先说明产品价值交付的“成功事件”，而不是把 DAU 当成万能北极星。将成功事件拆为活跃用户 × 人均任务次数 × 任务成功率，并按用户角色、生命周期和渠道分层。",
+    "metrics": "北极星：每周成功价值事件数；驱动：激活率、任务频次、成功率；护栏：留存、投诉率、成本。",
+    "pitfalls": [
+      "直接跳到功能或结论，没有澄清业务目标与用户范围。",
+      "只报一个大盘平均值，没有分群、漏斗和基线。",
+      "没有明确北极星指标、护栏指标与折损点。",
+      "把假设数据当事实，忽略验证成本、风险和 ROI。"
+    ],
+    "answer": "For the question “Design marketplace metrics,” I would define the user value event first, then choose a north star that captures repeated successful value delivery. I would decompose it into active users, frequency and success rate, with quality and retention guardrails. I would compare at least two alternatives, state my assumptions, and choose a focused first step. Success would be measured through a clear north star, funnel conversion, guardrails, and an ROI estimate based on explicit assumptions.",
+    "followup": "如果你的首选方案无法提升核心指标，你如何区分是用户需求判断错误、方案执行问题，还是实验设计问题？"
+  },
+  {
+    "id": 30,
+    "category": "指标体系 Metrics",
+    "question": "如何衡量企业知识库 RAG 产品的成功",
+    "english": "Measure enterprise RAG success",
+    "frameworkEN": "Value → North Star → Driver Tree → Guardrails → Segments",
+    "frameworkZH": "定义用户获得的核心价值 → 北极星指标 → 拆分可行动的驱动指标 → 护栏指标 → 分群与埋点",
+    "steps": [
+      "1. 框定问题 / Frame: 针对「如何衡量企业知识库 RAG 产品的成功」，先澄清目标用户、成功定义、时间范围和限制。",
+      "2. 结构化拆解 / Decompose: 先说明产品价值交付的“成功事件”，而不是把 DAU 当成万能北极星。将成功事件拆为活跃用户 × 人均任务次数 × 任务成功率，并按用户角色、生命周期和渠道分层。",
+      "3. 做出选择 / Decide: 比较至少两种解释或方案，给出取舍依据、风险和最小验证方案。",
+      "4. 量化验证 / Measure: 北极星：每周成功价值事件数；驱动：激活率、任务频次、成功率；护栏：留存、投诉率、成本。"
+    ],
+    "detail": "先说明产品价值交付的“成功事件”，而不是把 DAU 当成万能北极星。将成功事件拆为活跃用户 × 人均任务次数 × 任务成功率，并按用户角色、生命周期和渠道分层。",
+    "metrics": "北极星：每周成功价值事件数；驱动：激活率、任务频次、成功率；护栏：留存、投诉率、成本。",
+    "pitfalls": [
+      "直接跳到功能或结论，没有澄清业务目标与用户范围。",
+      "只报一个大盘平均值，没有分群、漏斗和基线。",
+      "没有明确北极星指标、护栏指标与折损点。",
+      "把假设数据当事实，忽略验证成本、风险和 ROI。"
+    ],
+    "answer": "For the question “Measure enterprise RAG success,” I would define the user value event first, then choose a north star that captures repeated successful value delivery. I would decompose it into active users, frequency and success rate, with quality and retention guardrails. I would compare at least two alternatives, state my assumptions, and choose a focused first step. Success would be measured through a clear north star, funnel conversion, guardrails, and an ROI estimate based on explicit assumptions.",
+    "followup": "如果你的首选方案无法提升核心指标，你如何区分是用户需求判断错误、方案执行问题，还是实验设计问题？"
+  },
+  {
+    "id": 31,
+    "category": "指标诊断 Diagnosis",
+    "question": "DAU 突然下降 30%，如何定位原因",
+    "english": "Diagnose 30% DAU drop",
+    "frameworkEN": "Validate → Segment → Funnel → Hypotheses → Verify → Act",
+    "frameworkZH": "先排除口径和数据管道问题 → 按时间/平台/版本/人群切分 → 定位漏斗折损点 → 内外部假设 → 数据验证 → 修复与监控",
+    "steps": [
+      "1. 框定问题 / Frame: 针对「DAU 突然下降 30%，如何定位原因」，先澄清目标用户、成功定义、时间范围和限制。",
+      "2. 结构化拆解 / Decompose: 先检查事件埋点、分母和数据延迟；用版本×渠道×地区×新老用户切片，定位下降贡献最大的群组。然后沿关键漏斗比较前后转化率，结合发布记录、服务日志和外部变化做排除法。",
+      "3. 做出选择 / Decide: 比较至少两种解释或方案，给出取舍依据、风险和最小验证方案。",
+      "4. 量化验证 / Measure: 受影响分群的核心指标恢复率；护栏：错误率、延迟和其他分群表现。"
+    ],
+    "detail": "先检查事件埋点、分母和数据延迟；用版本×渠道×地区×新老用户切片，定位下降贡献最大的群组。然后沿关键漏斗比较前后转化率，结合发布记录、服务日志和外部变化做排除法。",
+    "metrics": "受影响分群的核心指标恢复率；护栏：错误率、延迟和其他分群表现。",
+    "pitfalls": [
+      "直接跳到功能或结论，没有澄清业务目标与用户范围。",
+      "只报一个大盘平均值，没有分群、漏斗和基线。",
+      "没有明确北极星指标、护栏指标与折损点。",
+      "把假设数据当事实，忽略验证成本、风险和 ROI。"
+    ],
+    "answer": "For the question “Diagnose 30% DAU drop,” I would first validate instrumentation and the metric definition. Next I would segment the decline by platform, cohort and release, isolate the largest contributing funnel step, and test hypotheses using logs and controlled comparisons. I would compare at least two alternatives, state my assumptions, and choose a focused first step. Success would be measured through a clear north star, funnel conversion, guardrails, and an ROI estimate based on explicit assumptions.",
+    "followup": "如果你的首选方案无法提升核心指标，你如何区分是用户需求判断错误、方案执行问题，还是实验设计问题？"
+  },
+  {
+    "id": 32,
+    "category": "指标诊断 Diagnosis",
+    "question": "新用户注册转化率下降 20%，如何诊断",
+    "english": "Diagnose 20% signup conversion drop",
+    "frameworkEN": "Validate → Segment → Funnel → Hypotheses → Verify → Act",
+    "frameworkZH": "先排除口径和数据管道问题 → 按时间/平台/版本/人群切分 → 定位漏斗折损点 → 内外部假设 → 数据验证 → 修复与监控",
+    "steps": [
+      "1. 框定问题 / Frame: 针对「新用户注册转化率下降 20%，如何诊断」，先澄清目标用户、成功定义、时间范围和限制。",
+      "2. 结构化拆解 / Decompose: 先检查事件埋点、分母和数据延迟；用版本×渠道×地区×新老用户切片，定位下降贡献最大的群组。然后沿关键漏斗比较前后转化率，结合发布记录、服务日志和外部变化做排除法。",
+      "3. 做出选择 / Decide: 比较至少两种解释或方案，给出取舍依据、风险和最小验证方案。",
+      "4. 量化验证 / Measure: 受影响分群的核心指标恢复率；护栏：错误率、延迟和其他分群表现。"
+    ],
+    "detail": "先检查事件埋点、分母和数据延迟；用版本×渠道×地区×新老用户切片，定位下降贡献最大的群组。然后沿关键漏斗比较前后转化率，结合发布记录、服务日志和外部变化做排除法。",
+    "metrics": "受影响分群的核心指标恢复率；护栏：错误率、延迟和其他分群表现。",
+    "pitfalls": [
+      "直接跳到功能或结论，没有澄清业务目标与用户范围。",
+      "只报一个大盘平均值，没有分群、漏斗和基线。",
+      "没有明确北极星指标、护栏指标与折损点。",
+      "把假设数据当事实，忽略验证成本、风险和 ROI。"
+    ],
+    "answer": "For the question “Diagnose 20% signup conversion drop,” I would first validate instrumentation and the metric definition. Next I would segment the decline by platform, cohort and release, isolate the largest contributing funnel step, and test hypotheses using logs and controlled comparisons. I would compare at least two alternatives, state my assumptions, and choose a focused first step. Success would be measured through a clear north star, funnel conversion, guardrails, and an ROI estimate based on explicit assumptions.",
+    "followup": "如果你的首选方案无法提升核心指标，你如何区分是用户需求判断错误、方案执行问题，还是实验设计问题？"
+  },
+  {
+    "id": 33,
+    "category": "指标诊断 Diagnosis",
+    "question": "电商支付转化率下降但流量上升，怎么办",
+    "english": "Diagnose ecommerce checkout conversion decline",
+    "frameworkEN": "Validate → Segment → Funnel → Hypotheses → Verify → Act",
+    "frameworkZH": "先排除口径和数据管道问题 → 按时间/平台/版本/人群切分 → 定位漏斗折损点 → 内外部假设 → 数据验证 → 修复与监控",
+    "steps": [
+      "1. 框定问题 / Frame: 针对「电商支付转化率下降但流量上升，怎么办」，先澄清目标用户、成功定义、时间范围和限制。",
+      "2. 结构化拆解 / Decompose: 先检查事件埋点、分母和数据延迟；用版本×渠道×地区×新老用户切片，定位下降贡献最大的群组。然后沿关键漏斗比较前后转化率，结合发布记录、服务日志和外部变化做排除法。",
+      "3. 做出选择 / Decide: 比较至少两种解释或方案，给出取舍依据、风险和最小验证方案。",
+      "4. 量化验证 / Measure: 受影响分群的核心指标恢复率；护栏：错误率、延迟和其他分群表现。"
+    ],
+    "detail": "先检查事件埋点、分母和数据延迟；用版本×渠道×地区×新老用户切片，定位下降贡献最大的群组。然后沿关键漏斗比较前后转化率，结合发布记录、服务日志和外部变化做排除法。",
+    "metrics": "受影响分群的核心指标恢复率；护栏：错误率、延迟和其他分群表现。",
+    "pitfalls": [
+      "直接跳到功能或结论，没有澄清业务目标与用户范围。",
+      "只报一个大盘平均值，没有分群、漏斗和基线。",
+      "没有明确北极星指标、护栏指标与折损点。",
+      "把假设数据当事实，忽略验证成本、风险和 ROI。"
+    ],
+    "answer": "For the question “Diagnose ecommerce checkout conversion decline,” I would first validate instrumentation and the metric definition. Next I would segment the decline by platform, cohort and release, isolate the largest contributing funnel step, and test hypotheses using logs and controlled comparisons. I would compare at least two alternatives, state my assumptions, and choose a focused first step. Success would be measured through a clear north star, funnel conversion, guardrails, and an ROI estimate based on explicit assumptions.",
+    "followup": "如果你的首选方案无法提升核心指标，你如何区分是用户需求判断错误、方案执行问题，还是实验设计问题？"
+  },
+  {
+    "id": 34,
+    "category": "指标诊断 Diagnosis",
+    "question": "AI 搜索点击率上涨但满意度下降，为什么",
+    "english": "Explain higher AI search CTR but lower satisfaction",
+    "frameworkEN": "Validate → Segment → Funnel → Hypotheses → Verify → Act",
+    "frameworkZH": "先排除口径和数据管道问题 → 按时间/平台/版本/人群切分 → 定位漏斗折损点 → 内外部假设 → 数据验证 → 修复与监控",
+    "steps": [
+      "1. 框定问题 / Frame: 针对「AI 搜索点击率上涨但满意度下降，为什么」，先澄清目标用户、成功定义、时间范围和限制。",
+      "2. 结构化拆解 / Decompose: 先检查事件埋点、分母和数据延迟；用版本×渠道×地区×新老用户切片，定位下降贡献最大的群组。然后沿关键漏斗比较前后转化率，结合发布记录、服务日志和外部变化做排除法。",
+      "3. 做出选择 / Decide: 比较至少两种解释或方案，给出取舍依据、风险和最小验证方案。",
+      "4. 量化验证 / Measure: 受影响分群的核心指标恢复率；护栏：错误率、延迟和其他分群表现。"
+    ],
+    "detail": "先检查事件埋点、分母和数据延迟；用版本×渠道×地区×新老用户切片，定位下降贡献最大的群组。然后沿关键漏斗比较前后转化率，结合发布记录、服务日志和外部变化做排除法。",
+    "metrics": "受影响分群的核心指标恢复率；护栏：错误率、延迟和其他分群表现。",
+    "pitfalls": [
+      "直接跳到功能或结论，没有澄清业务目标与用户范围。",
+      "只报一个大盘平均值，没有分群、漏斗和基线。",
+      "没有明确北极星指标、护栏指标与折损点。",
+      "把假设数据当事实，忽略验证成本、风险和 ROI。"
+    ],
+    "answer": "For the question “Explain higher AI search CTR but lower satisfaction,” I would first validate instrumentation and the metric definition. Next I would segment the decline by platform, cohort and release, isolate the largest contributing funnel step, and test hypotheses using logs and controlled comparisons. I would compare at least two alternatives, state my assumptions, and choose a focused first step. Success would be measured through a clear north star, funnel conversion, guardrails, and an ROI estimate based on explicit assumptions.",
+    "followup": "如果你的首选方案无法提升核心指标，你如何区分是用户需求判断错误、方案执行问题，还是实验设计问题？"
+  },
+  {
+    "id": 35,
+    "category": "指标诊断 Diagnosis",
+    "question": "SaaS 客户流失率突然升高，如何排查",
+    "english": "Diagnose SaaS churn spike",
+    "frameworkEN": "Validate → Segment → Funnel → Hypotheses → Verify → Act",
+    "frameworkZH": "先排除口径和数据管道问题 → 按时间/平台/版本/人群切分 → 定位漏斗折损点 → 内外部假设 → 数据验证 → 修复与监控",
+    "steps": [
+      "1. 框定问题 / Frame: 针对「SaaS 客户流失率突然升高，如何排查」，先澄清目标用户、成功定义、时间范围和限制。",
+      "2. 结构化拆解 / Decompose: 先检查事件埋点、分母和数据延迟；用版本×渠道×地区×新老用户切片，定位下降贡献最大的群组。然后沿关键漏斗比较前后转化率，结合发布记录、服务日志和外部变化做排除法。",
+      "3. 做出选择 / Decide: 比较至少两种解释或方案，给出取舍依据、风险和最小验证方案。",
+      "4. 量化验证 / Measure: 受影响分群的核心指标恢复率；护栏：错误率、延迟和其他分群表现。"
+    ],
+    "detail": "先检查事件埋点、分母和数据延迟；用版本×渠道×地区×新老用户切片，定位下降贡献最大的群组。然后沿关键漏斗比较前后转化率，结合发布记录、服务日志和外部变化做排除法。",
+    "metrics": "受影响分群的核心指标恢复率；护栏：错误率、延迟和其他分群表现。",
+    "pitfalls": [
+      "直接跳到功能或结论，没有澄清业务目标与用户范围。",
+      "只报一个大盘平均值，没有分群、漏斗和基线。",
+      "没有明确北极星指标、护栏指标与折损点。",
+      "把假设数据当事实，忽略验证成本、风险和 ROI。"
+    ],
+    "answer": "For the question “Diagnose SaaS churn spike,” I would first validate instrumentation and the metric definition. Next I would segment the decline by platform, cohort and release, isolate the largest contributing funnel step, and test hypotheses using logs and controlled comparisons. I would compare at least two alternatives, state my assumptions, and choose a focused first step. Success would be measured through a clear north star, funnel conversion, guardrails, and an ROI estimate based on explicit assumptions.",
+    "followup": "如果你的首选方案无法提升核心指标，你如何区分是用户需求判断错误、方案执行问题，还是实验设计问题？"
+  },
+  {
+    "id": 36,
+    "category": "指标诊断 Diagnosis",
+    "question": "某次版本发布后留存率下降，怎么分析",
+    "english": "Diagnose retention decline after release",
+    "frameworkEN": "Validate → Segment → Funnel → Hypotheses → Verify → Act",
+    "frameworkZH": "先排除口径和数据管道问题 → 按时间/平台/版本/人群切分 → 定位漏斗折损点 → 内外部假设 → 数据验证 → 修复与监控",
+    "steps": [
+      "1. 框定问题 / Frame: 针对「某次版本发布后留存率下降，怎么分析」，先澄清目标用户、成功定义、时间范围和限制。",
+      "2. 结构化拆解 / Decompose: 先检查事件埋点、分母和数据延迟；用版本×渠道×地区×新老用户切片，定位下降贡献最大的群组。然后沿关键漏斗比较前后转化率，结合发布记录、服务日志和外部变化做排除法。",
+      "3. 做出选择 / Decide: 比较至少两种解释或方案，给出取舍依据、风险和最小验证方案。",
+      "4. 量化验证 / Measure: 受影响分群的核心指标恢复率；护栏：错误率、延迟和其他分群表现。"
+    ],
+    "detail": "先检查事件埋点、分母和数据延迟；用版本×渠道×地区×新老用户切片，定位下降贡献最大的群组。然后沿关键漏斗比较前后转化率，结合发布记录、服务日志和外部变化做排除法。",
+    "metrics": "受影响分群的核心指标恢复率；护栏：错误率、延迟和其他分群表现。",
+    "pitfalls": [
+      "直接跳到功能或结论，没有澄清业务目标与用户范围。",
+      "只报一个大盘平均值，没有分群、漏斗和基线。",
+      "没有明确北极星指标、护栏指标与折损点。",
+      "把假设数据当事实，忽略验证成本、风险和 ROI。"
+    ],
+    "answer": "For the question “Diagnose retention decline after release,” I would first validate instrumentation and the metric definition. Next I would segment the decline by platform, cohort and release, isolate the largest contributing funnel step, and test hypotheses using logs and controlled comparisons. I would compare at least two alternatives, state my assumptions, and choose a focused first step. Success would be measured through a clear north star, funnel conversion, guardrails, and an ROI estimate based on explicit assumptions.",
+    "followup": "如果你的首选方案无法提升核心指标，你如何区分是用户需求判断错误、方案执行问题，还是实验设计问题？"
+  },
+  {
+    "id": 37,
+    "category": "指标诊断 Diagnosis",
+    "question": "推荐系统 CTR 上升但总时长下降，怎么办",
+    "english": "Explain higher recommender CTR but lower watch time",
+    "frameworkEN": "Validate → Segment → Funnel → Hypotheses → Verify → Act",
+    "frameworkZH": "先排除口径和数据管道问题 → 按时间/平台/版本/人群切分 → 定位漏斗折损点 → 内外部假设 → 数据验证 → 修复与监控",
+    "steps": [
+      "1. 框定问题 / Frame: 针对「推荐系统 CTR 上升但总时长下降，怎么办」，先澄清目标用户、成功定义、时间范围和限制。",
+      "2. 结构化拆解 / Decompose: 先检查事件埋点、分母和数据延迟；用版本×渠道×地区×新老用户切片，定位下降贡献最大的群组。然后沿关键漏斗比较前后转化率，结合发布记录、服务日志和外部变化做排除法。",
+      "3. 做出选择 / Decide: 比较至少两种解释或方案，给出取舍依据、风险和最小验证方案。",
+      "4. 量化验证 / Measure: 受影响分群的核心指标恢复率；护栏：错误率、延迟和其他分群表现。"
+    ],
+    "detail": "先检查事件埋点、分母和数据延迟；用版本×渠道×地区×新老用户切片，定位下降贡献最大的群组。然后沿关键漏斗比较前后转化率，结合发布记录、服务日志和外部变化做排除法。",
+    "metrics": "受影响分群的核心指标恢复率；护栏：错误率、延迟和其他分群表现。",
+    "pitfalls": [
+      "直接跳到功能或结论，没有澄清业务目标与用户范围。",
+      "只报一个大盘平均值，没有分群、漏斗和基线。",
+      "没有明确北极星指标、护栏指标与折损点。",
+      "把假设数据当事实，忽略验证成本、风险和 ROI。"
+    ],
+    "answer": "For the question “Explain higher recommender CTR but lower watch time,” I would first validate instrumentation and the metric definition. Next I would segment the decline by platform, cohort and release, isolate the largest contributing funnel step, and test hypotheses using logs and controlled comparisons. I would compare at least two alternatives, state my assumptions, and choose a focused first step. Success would be measured through a clear north star, funnel conversion, guardrails, and an ROI estimate based on explicit assumptions.",
+    "followup": "如果你的首选方案无法提升核心指标，你如何区分是用户需求判断错误、方案执行问题，还是实验设计问题？"
+  },
+  {
+    "id": 38,
+    "category": "指标诊断 Diagnosis",
+    "question": "AI Agent 成功率下降且延迟增加，怎么诊断",
+    "english": "Diagnose agent success decline and latency increase",
+    "frameworkEN": "Validate → Segment → Funnel → Hypotheses → Verify → Act",
+    "frameworkZH": "先排除口径和数据管道问题 → 按时间/平台/版本/人群切分 → 定位漏斗折损点 → 内外部假设 → 数据验证 → 修复与监控",
+    "steps": [
+      "1. 框定问题 / Frame: 针对「AI Agent 成功率下降且延迟增加，怎么诊断」，先澄清目标用户、成功定义、时间范围和限制。",
+      "2. 结构化拆解 / Decompose: 先检查事件埋点、分母和数据延迟；用版本×渠道×地区×新老用户切片，定位下降贡献最大的群组。然后沿关键漏斗比较前后转化率，结合发布记录、服务日志和外部变化做排除法。",
+      "3. 做出选择 / Decide: 比较至少两种解释或方案，给出取舍依据、风险和最小验证方案。",
+      "4. 量化验证 / Measure: 受影响分群的核心指标恢复率；护栏：错误率、延迟和其他分群表现。"
+    ],
+    "detail": "先检查事件埋点、分母和数据延迟；用版本×渠道×地区×新老用户切片，定位下降贡献最大的群组。然后沿关键漏斗比较前后转化率，结合发布记录、服务日志和外部变化做排除法。",
+    "metrics": "受影响分群的核心指标恢复率；护栏：错误率、延迟和其他分群表现。",
+    "pitfalls": [
+      "直接跳到功能或结论，没有澄清业务目标与用户范围。",
+      "只报一个大盘平均值，没有分群、漏斗和基线。",
+      "没有明确北极星指标、护栏指标与折损点。",
+      "把假设数据当事实，忽略验证成本、风险和 ROI。"
+    ],
+    "answer": "For the question “Diagnose agent success decline and latency increase,” I would first validate instrumentation and the metric definition. Next I would segment the decline by platform, cohort and release, isolate the largest contributing funnel step, and test hypotheses using logs and controlled comparisons. I would compare at least two alternatives, state my assumptions, and choose a focused first step. Success would be measured through a clear north star, funnel conversion, guardrails, and an ROI estimate based on explicit assumptions.",
+    "followup": "如果你的首选方案无法提升核心指标，你如何区分是用户需求判断错误、方案执行问题，还是实验设计问题？"
+  },
+  {
+    "id": 39,
+    "category": "指标诊断 Diagnosis",
+    "question": "某个地区 Uber 订单取消率上升，如何分析",
+    "english": "Diagnose Uber cancellations spike in one region",
+    "frameworkEN": "Validate → Segment → Funnel → Hypotheses → Verify → Act",
+    "frameworkZH": "先排除口径和数据管道问题 → 按时间/平台/版本/人群切分 → 定位漏斗折损点 → 内外部假设 → 数据验证 → 修复与监控",
+    "steps": [
+      "1. 框定问题 / Frame: 针对「某个地区 Uber 订单取消率上升，如何分析」，先澄清目标用户、成功定义、时间范围和限制。",
+      "2. 结构化拆解 / Decompose: 先检查事件埋点、分母和数据延迟；用版本×渠道×地区×新老用户切片，定位下降贡献最大的群组。然后沿关键漏斗比较前后转化率，结合发布记录、服务日志和外部变化做排除法。",
+      "3. 做出选择 / Decide: 比较至少两种解释或方案，给出取舍依据、风险和最小验证方案。",
+      "4. 量化验证 / Measure: 受影响分群的核心指标恢复率；护栏：错误率、延迟和其他分群表现。"
+    ],
+    "detail": "先检查事件埋点、分母和数据延迟；用版本×渠道×地区×新老用户切片，定位下降贡献最大的群组。然后沿关键漏斗比较前后转化率，结合发布记录、服务日志和外部变化做排除法。",
+    "metrics": "受影响分群的核心指标恢复率；护栏：错误率、延迟和其他分群表现。",
+    "pitfalls": [
+      "直接跳到功能或结论，没有澄清业务目标与用户范围。",
+      "只报一个大盘平均值，没有分群、漏斗和基线。",
+      "没有明确北极星指标、护栏指标与折损点。",
+      "把假设数据当事实，忽略验证成本、风险和 ROI。"
+    ],
+    "answer": "For the question “Diagnose Uber cancellations spike in one region,” I would first validate instrumentation and the metric definition. Next I would segment the decline by platform, cohort and release, isolate the largest contributing funnel step, and test hypotheses using logs and controlled comparisons. I would compare at least two alternatives, state my assumptions, and choose a focused first step. Success would be measured through a clear north star, funnel conversion, guardrails, and an ROI estimate based on explicit assumptions.",
+    "followup": "如果你的首选方案无法提升核心指标，你如何区分是用户需求判断错误、方案执行问题，还是实验设计问题？"
+  },
+  {
+    "id": 40,
+    "category": "指标诊断 Diagnosis",
+    "question": "B2B 产品使用量增加但续费率下降，为什么",
+    "english": "Explain higher SaaS usage but lower renewals",
+    "frameworkEN": "Validate → Segment → Funnel → Hypotheses → Verify → Act",
+    "frameworkZH": "先排除口径和数据管道问题 → 按时间/平台/版本/人群切分 → 定位漏斗折损点 → 内外部假设 → 数据验证 → 修复与监控",
+    "steps": [
+      "1. 框定问题 / Frame: 针对「B2B 产品使用量增加但续费率下降，为什么」，先澄清目标用户、成功定义、时间范围和限制。",
+      "2. 结构化拆解 / Decompose: 先检查事件埋点、分母和数据延迟；用版本×渠道×地区×新老用户切片，定位下降贡献最大的群组。然后沿关键漏斗比较前后转化率，结合发布记录、服务日志和外部变化做排除法。",
+      "3. 做出选择 / Decide: 比较至少两种解释或方案，给出取舍依据、风险和最小验证方案。",
+      "4. 量化验证 / Measure: 受影响分群的核心指标恢复率；护栏：错误率、延迟和其他分群表现。"
+    ],
+    "detail": "先检查事件埋点、分母和数据延迟；用版本×渠道×地区×新老用户切片，定位下降贡献最大的群组。然后沿关键漏斗比较前后转化率，结合发布记录、服务日志和外部变化做排除法。",
+    "metrics": "受影响分群的核心指标恢复率；护栏：错误率、延迟和其他分群表现。",
+    "pitfalls": [
+      "直接跳到功能或结论，没有澄清业务目标与用户范围。",
+      "只报一个大盘平均值，没有分群、漏斗和基线。",
+      "没有明确北极星指标、护栏指标与折损点。",
+      "把假设数据当事实，忽略验证成本、风险和 ROI。"
+    ],
+    "answer": "For the question “Explain higher SaaS usage but lower renewals,” I would first validate instrumentation and the metric definition. Next I would segment the decline by platform, cohort and release, isolate the largest contributing funnel step, and test hypotheses using logs and controlled comparisons. I would compare at least two alternatives, state my assumptions, and choose a focused first step. Success would be measured through a clear north star, funnel conversion, guardrails, and an ROI estimate based on explicit assumptions.",
+    "followup": "如果你的首选方案无法提升核心指标，你如何区分是用户需求判断错误、方案执行问题，还是实验设计问题？"
+  },
+  {
+    "id": 41,
+    "category": "实验与增长 Experimentation",
+    "question": "如何设计新用户 onboarding 的 A/B test",
+    "english": "Design onboarding A/B test",
+    "frameworkEN": "Objective → Hypothesis → Experiment → Metrics → Decision",
+    "frameworkZH": "明确目标与基线 → 提出可证伪假设 → 设计随机对照实验 → 主指标和护栏 → 显著性、效果量与上线决策",
+    "steps": [
+      "1. 框定问题 / Frame: 针对「如何设计新用户 onboarding 的 A/B test」，先澄清目标用户、成功定义、时间范围和限制。",
+      "2. 结构化拆解 / Decompose: 从用户行为漏斗找到最大可控折损点，定义单一主假设；明确随机化单位、样本量/实验周期、SRM 检查、主指标和护栏，并区分统计显著与商业显著。",
+      "3. 做出选择 / Decide: 比较至少两种解释或方案，给出取舍依据、风险和最小验证方案。",
+      "4. 量化验证 / Measure: 主指标：目标转化率或 D7 留存；护栏：投诉、取消、长期留存；ROI：增量收益减研发运营成本。"
+    ],
+    "detail": "从用户行为漏斗找到最大可控折损点，定义单一主假设；明确随机化单位、样本量/实验周期、SRM 检查、主指标和护栏，并区分统计显著与商业显著。",
+    "metrics": "主指标：目标转化率或 D7 留存；护栏：投诉、取消、长期留存；ROI：增量收益减研发运营成本。",
+    "pitfalls": [
+      "直接跳到功能或结论，没有澄清业务目标与用户范围。",
+      "只报一个大盘平均值，没有分群、漏斗和基线。",
+      "没有明确北极星指标、护栏指标与折损点。",
+      "把假设数据当事实，忽略验证成本、风险和 ROI。"
+    ],
+    "answer": "For the question “Design onboarding A/B test,” I would identify the largest controllable funnel drop-off, form a falsifiable hypothesis, randomize at the right unit, pre-register the primary metric and guardrails, and decide based on effect size and business impact. I would compare at least two alternatives, state my assumptions, and choose a focused first step. Success would be measured through a clear north star, funnel conversion, guardrails, and an ROI estimate based on explicit assumptions.",
+    "followup": "如果你的首选方案无法提升核心指标，你如何区分是用户需求判断错误、方案执行问题，还是实验设计问题？"
+  },
+  {
+    "id": 42,
+    "category": "实验与增长 Experimentation",
+    "question": "如何判断实验显著但收益很小是否上线",
+    "english": "Ship statistically significant but tiny experiment?",
+    "frameworkEN": "Objective → Hypothesis → Experiment → Metrics → Decision",
+    "frameworkZH": "明确目标与基线 → 提出可证伪假设 → 设计随机对照实验 → 主指标和护栏 → 显著性、效果量与上线决策",
+    "steps": [
+      "1. 框定问题 / Frame: 针对「如何判断实验显著但收益很小是否上线」，先澄清目标用户、成功定义、时间范围和限制。",
+      "2. 结构化拆解 / Decompose: 从用户行为漏斗找到最大可控折损点，定义单一主假设；明确随机化单位、样本量/实验周期、SRM 检查、主指标和护栏，并区分统计显著与商业显著。",
+      "3. 做出选择 / Decide: 比较至少两种解释或方案，给出取舍依据、风险和最小验证方案。",
+      "4. 量化验证 / Measure: 主指标：目标转化率或 D7 留存；护栏：投诉、取消、长期留存；ROI：增量收益减研发运营成本。"
+    ],
+    "detail": "从用户行为漏斗找到最大可控折损点，定义单一主假设；明确随机化单位、样本量/实验周期、SRM 检查、主指标和护栏，并区分统计显著与商业显著。",
+    "metrics": "主指标：目标转化率或 D7 留存；护栏：投诉、取消、长期留存；ROI：增量收益减研发运营成本。",
+    "pitfalls": [
+      "直接跳到功能或结论，没有澄清业务目标与用户范围。",
+      "只报一个大盘平均值，没有分群、漏斗和基线。",
+      "没有明确北极星指标、护栏指标与折损点。",
+      "把假设数据当事实，忽略验证成本、风险和 ROI。"
+    ],
+    "answer": "For the question “Ship statistically significant but tiny experiment?,” I would identify the largest controllable funnel drop-off, form a falsifiable hypothesis, randomize at the right unit, pre-register the primary metric and guardrails, and decide based on effect size and business impact. I would compare at least two alternatives, state my assumptions, and choose a focused first step. Success would be measured through a clear north star, funnel conversion, guardrails, and an ROI estimate based on explicit assumptions.",
+    "followup": "如果你的首选方案无法提升核心指标，你如何区分是用户需求判断错误、方案执行问题，还是实验设计问题？"
+  },
+  {
+    "id": 43,
+    "category": "实验与增长 Experimentation",
+    "question": "如何提升 B2B SaaS 激活率",
+    "english": "Improve B2B SaaS activation",
+    "frameworkEN": "Objective → Hypothesis → Experiment → Metrics → Decision",
+    "frameworkZH": "明确目标与基线 → 提出可证伪假设 → 设计随机对照实验 → 主指标和护栏 → 显著性、效果量与上线决策",
+    "steps": [
+      "1. 框定问题 / Frame: 针对「如何提升 B2B SaaS 激活率」，先澄清目标用户、成功定义、时间范围和限制。",
+      "2. 结构化拆解 / Decompose: 从用户行为漏斗找到最大可控折损点，定义单一主假设；明确随机化单位、样本量/实验周期、SRM 检查、主指标和护栏，并区分统计显著与商业显著。",
+      "3. 做出选择 / Decide: 比较至少两种解释或方案，给出取舍依据、风险和最小验证方案。",
+      "4. 量化验证 / Measure: 主指标：目标转化率或 D7 留存；护栏：投诉、取消、长期留存；ROI：增量收益减研发运营成本。"
+    ],
+    "detail": "从用户行为漏斗找到最大可控折损点，定义单一主假设；明确随机化单位、样本量/实验周期、SRM 检查、主指标和护栏，并区分统计显著与商业显著。",
+    "metrics": "主指标：目标转化率或 D7 留存；护栏：投诉、取消、长期留存；ROI：增量收益减研发运营成本。",
+    "pitfalls": [
+      "直接跳到功能或结论，没有澄清业务目标与用户范围。",
+      "只报一个大盘平均值，没有分群、漏斗和基线。",
+      "没有明确北极星指标、护栏指标与折损点。",
+      "把假设数据当事实，忽略验证成本、风险和 ROI。"
+    ],
+    "answer": "For the question “Improve B2B SaaS activation,” I would identify the largest controllable funnel drop-off, form a falsifiable hypothesis, randomize at the right unit, pre-register the primary metric and guardrails, and decide based on effect size and business impact. I would compare at least two alternatives, state my assumptions, and choose a focused first step. Success would be measured through a clear north star, funnel conversion, guardrails, and an ROI estimate based on explicit assumptions.",
+    "followup": "如果你的首选方案无法提升核心指标，你如何区分是用户需求判断错误、方案执行问题，还是实验设计问题？"
+  },
+  {
+    "id": 44,
+    "category": "实验与增长 Experimentation",
+    "question": "如何提升 Duolingo 的 D7 留存",
+    "english": "Improve Duolingo D7 retention",
+    "frameworkEN": "Objective → Hypothesis → Experiment → Metrics → Decision",
+    "frameworkZH": "明确目标与基线 → 提出可证伪假设 → 设计随机对照实验 → 主指标和护栏 → 显著性、效果量与上线决策",
+    "steps": [
+      "1. 框定问题 / Frame: 针对「如何提升 Duolingo 的 D7 留存」，先澄清目标用户、成功定义、时间范围和限制。",
+      "2. 结构化拆解 / Decompose: 从用户行为漏斗找到最大可控折损点，定义单一主假设；明确随机化单位、样本量/实验周期、SRM 检查、主指标和护栏，并区分统计显著与商业显著。",
+      "3. 做出选择 / Decide: 比较至少两种解释或方案，给出取舍依据、风险和最小验证方案。",
+      "4. 量化验证 / Measure: 主指标：目标转化率或 D7 留存；护栏：投诉、取消、长期留存；ROI：增量收益减研发运营成本。"
+    ],
+    "detail": "从用户行为漏斗找到最大可控折损点，定义单一主假设；明确随机化单位、样本量/实验周期、SRM 检查、主指标和护栏，并区分统计显著与商业显著。",
+    "metrics": "主指标：目标转化率或 D7 留存；护栏：投诉、取消、长期留存；ROI：增量收益减研发运营成本。",
+    "pitfalls": [
+      "直接跳到功能或结论，没有澄清业务目标与用户范围。",
+      "只报一个大盘平均值，没有分群、漏斗和基线。",
+      "没有明确北极星指标、护栏指标与折损点。",
+      "把假设数据当事实，忽略验证成本、风险和 ROI。"
+    ],
+    "answer": "For the question “Improve Duolingo D7 retention,” I would identify the largest controllable funnel drop-off, form a falsifiable hypothesis, randomize at the right unit, pre-register the primary metric and guardrails, and decide based on effect size and business impact. I would compare at least two alternatives, state my assumptions, and choose a focused first step. Success would be measured through a clear north star, funnel conversion, guardrails, and an ROI estimate based on explicit assumptions.",
+    "followup": "如果你的首选方案无法提升核心指标，你如何区分是用户需求判断错误、方案执行问题，还是实验设计问题？"
+  },
+  {
+    "id": 45,
+    "category": "实验与增长 Experimentation",
+    "question": "如何优化电商购物车放弃率",
+    "english": "Reduce ecommerce cart abandonment",
+    "frameworkEN": "Objective → Hypothesis → Experiment → Metrics → Decision",
+    "frameworkZH": "明确目标与基线 → 提出可证伪假设 → 设计随机对照实验 → 主指标和护栏 → 显著性、效果量与上线决策",
+    "steps": [
+      "1. 框定问题 / Frame: 针对「如何优化电商购物车放弃率」，先澄清目标用户、成功定义、时间范围和限制。",
+      "2. 结构化拆解 / Decompose: 从用户行为漏斗找到最大可控折损点，定义单一主假设；明确随机化单位、样本量/实验周期、SRM 检查、主指标和护栏，并区分统计显著与商业显著。",
+      "3. 做出选择 / Decide: 比较至少两种解释或方案，给出取舍依据、风险和最小验证方案。",
+      "4. 量化验证 / Measure: 主指标：目标转化率或 D7 留存；护栏：投诉、取消、长期留存；ROI：增量收益减研发运营成本。"
+    ],
+    "detail": "从用户行为漏斗找到最大可控折损点，定义单一主假设；明确随机化单位、样本量/实验周期、SRM 检查、主指标和护栏，并区分统计显著与商业显著。",
+    "metrics": "主指标：目标转化率或 D7 留存；护栏：投诉、取消、长期留存；ROI：增量收益减研发运营成本。",
+    "pitfalls": [
+      "直接跳到功能或结论，没有澄清业务目标与用户范围。",
+      "只报一个大盘平均值，没有分群、漏斗和基线。",
+      "没有明确北极星指标、护栏指标与折损点。",
+      "把假设数据当事实，忽略验证成本、风险和 ROI。"
+    ],
+    "answer": "For the question “Reduce ecommerce cart abandonment,” I would identify the largest controllable funnel drop-off, form a falsifiable hypothesis, randomize at the right unit, pre-register the primary metric and guardrails, and decide based on effect size and business impact. I would compare at least two alternatives, state my assumptions, and choose a focused first step. Success would be measured through a clear north star, funnel conversion, guardrails, and an ROI estimate based on explicit assumptions.",
+    "followup": "如果你的首选方案无法提升核心指标，你如何区分是用户需求判断错误、方案执行问题，还是实验设计问题？"
+  },
+  {
+    "id": 46,
+    "category": "实验与增长 Experimentation",
+    "question": "如何验证 AI 摘要是否提高用户效率",
+    "english": "Test whether AI summaries save time",
+    "frameworkEN": "Objective → Hypothesis → Experiment → Metrics → Decision",
+    "frameworkZH": "明确目标与基线 → 提出可证伪假设 → 设计随机对照实验 → 主指标和护栏 → 显著性、效果量与上线决策",
+    "steps": [
+      "1. 框定问题 / Frame: 针对「如何验证 AI 摘要是否提高用户效率」，先澄清目标用户、成功定义、时间范围和限制。",
+      "2. 结构化拆解 / Decompose: 从用户行为漏斗找到最大可控折损点，定义单一主假设；明确随机化单位、样本量/实验周期、SRM 检查、主指标和护栏，并区分统计显著与商业显著。",
+      "3. 做出选择 / Decide: 比较至少两种解释或方案，给出取舍依据、风险和最小验证方案。",
+      "4. 量化验证 / Measure: 主指标：目标转化率或 D7 留存；护栏：投诉、取消、长期留存；ROI：增量收益减研发运营成本。"
+    ],
+    "detail": "从用户行为漏斗找到最大可控折损点，定义单一主假设；明确随机化单位、样本量/实验周期、SRM 检查、主指标和护栏，并区分统计显著与商业显著。",
+    "metrics": "主指标：目标转化率或 D7 留存；护栏：投诉、取消、长期留存；ROI：增量收益减研发运营成本。",
+    "pitfalls": [
+      "直接跳到功能或结论，没有澄清业务目标与用户范围。",
+      "只报一个大盘平均值，没有分群、漏斗和基线。",
+      "没有明确北极星指标、护栏指标与折损点。",
+      "把假设数据当事实，忽略验证成本、风险和 ROI。"
+    ],
+    "answer": "For the question “Test whether AI summaries save time,” I would identify the largest controllable funnel drop-off, form a falsifiable hypothesis, randomize at the right unit, pre-register the primary metric and guardrails, and decide based on effect size and business impact. I would compare at least two alternatives, state my assumptions, and choose a focused first step. Success would be measured through a clear north star, funnel conversion, guardrails, and an ROI estimate based on explicit assumptions.",
+    "followup": "如果你的首选方案无法提升核心指标，你如何区分是用户需求判断错误、方案执行问题，还是实验设计问题？"
+  },
+  {
+    "id": 47,
+    "category": "实验与增长 Experimentation",
+    "question": "如何为低流量 B2B 功能设计实验",
+    "english": "Experiment with low-traffic B2B features",
+    "frameworkEN": "Objective → Hypothesis → Experiment → Metrics → Decision",
+    "frameworkZH": "明确目标与基线 → 提出可证伪假设 → 设计随机对照实验 → 主指标和护栏 → 显著性、效果量与上线决策",
+    "steps": [
+      "1. 框定问题 / Frame: 针对「如何为低流量 B2B 功能设计实验」，先澄清目标用户、成功定义、时间范围和限制。",
+      "2. 结构化拆解 / Decompose: 从用户行为漏斗找到最大可控折损点，定义单一主假设；明确随机化单位、样本量/实验周期、SRM 检查、主指标和护栏，并区分统计显著与商业显著。",
+      "3. 做出选择 / Decide: 比较至少两种解释或方案，给出取舍依据、风险和最小验证方案。",
+      "4. 量化验证 / Measure: 主指标：目标转化率或 D7 留存；护栏：投诉、取消、长期留存；ROI：增量收益减研发运营成本。"
+    ],
+    "detail": "从用户行为漏斗找到最大可控折损点，定义单一主假设；明确随机化单位、样本量/实验周期、SRM 检查、主指标和护栏，并区分统计显著与商业显著。",
+    "metrics": "主指标：目标转化率或 D7 留存；护栏：投诉、取消、长期留存；ROI：增量收益减研发运营成本。",
+    "pitfalls": [
+      "直接跳到功能或结论，没有澄清业务目标与用户范围。",
+      "只报一个大盘平均值，没有分群、漏斗和基线。",
+      "没有明确北极星指标、护栏指标与折损点。",
+      "把假设数据当事实，忽略验证成本、风险和 ROI。"
+    ],
+    "answer": "For the question “Experiment with low-traffic B2B features,” I would identify the largest controllable funnel drop-off, form a falsifiable hypothesis, randomize at the right unit, pre-register the primary metric and guardrails, and decide based on effect size and business impact. I would compare at least two alternatives, state my assumptions, and choose a focused first step. Success would be measured through a clear north star, funnel conversion, guardrails, and an ROI estimate based on explicit assumptions.",
+    "followup": "如果你的首选方案无法提升核心指标，你如何区分是用户需求判断错误、方案执行问题，还是实验设计问题？"
+  },
+  {
+    "id": 48,
+    "category": "实验与增长 Experimentation",
+    "question": "如何评估免费试用改为 14 天的影响",
+    "english": "Evaluate 14-day free trial",
+    "frameworkEN": "Objective → Hypothesis → Experiment → Metrics → Decision",
+    "frameworkZH": "明确目标与基线 → 提出可证伪假设 → 设计随机对照实验 → 主指标和护栏 → 显著性、效果量与上线决策",
+    "steps": [
+      "1. 框定问题 / Frame: 针对「如何评估免费试用改为 14 天的影响」，先澄清目标用户、成功定义、时间范围和限制。",
+      "2. 结构化拆解 / Decompose: 从用户行为漏斗找到最大可控折损点，定义单一主假设；明确随机化单位、样本量/实验周期、SRM 检查、主指标和护栏，并区分统计显著与商业显著。",
+      "3. 做出选择 / Decide: 比较至少两种解释或方案，给出取舍依据、风险和最小验证方案。",
+      "4. 量化验证 / Measure: 主指标：目标转化率或 D7 留存；护栏：投诉、取消、长期留存；ROI：增量收益减研发运营成本。"
+    ],
+    "detail": "从用户行为漏斗找到最大可控折损点，定义单一主假设；明确随机化单位、样本量/实验周期、SRM 检查、主指标和护栏，并区分统计显著与商业显著。",
+    "metrics": "主指标：目标转化率或 D7 留存；护栏：投诉、取消、长期留存；ROI：增量收益减研发运营成本。",
+    "pitfalls": [
+      "直接跳到功能或结论，没有澄清业务目标与用户范围。",
+      "只报一个大盘平均值，没有分群、漏斗和基线。",
+      "没有明确北极星指标、护栏指标与折损点。",
+      "把假设数据当事实，忽略验证成本、风险和 ROI。"
+    ],
+    "answer": "For the question “Evaluate 14-day free trial,” I would identify the largest controllable funnel drop-off, form a falsifiable hypothesis, randomize at the right unit, pre-register the primary metric and guardrails, and decide based on effect size and business impact. I would compare at least two alternatives, state my assumptions, and choose a focused first step. Success would be measured through a clear north star, funnel conversion, guardrails, and an ROI estimate based on explicit assumptions.",
+    "followup": "如果你的首选方案无法提升核心指标，你如何区分是用户需求判断错误、方案执行问题，还是实验设计问题？"
+  },
+  {
+    "id": 49,
+    "category": "实验与增长 Experimentation",
+    "question": "如何提升协作产品的邀请转化率",
+    "english": "Improve team invite conversion",
+    "frameworkEN": "Objective → Hypothesis → Experiment → Metrics → Decision",
+    "frameworkZH": "明确目标与基线 → 提出可证伪假设 → 设计随机对照实验 → 主指标和护栏 → 显著性、效果量与上线决策",
+    "steps": [
+      "1. 框定问题 / Frame: 针对「如何提升协作产品的邀请转化率」，先澄清目标用户、成功定义、时间范围和限制。",
+      "2. 结构化拆解 / Decompose: 从用户行为漏斗找到最大可控折损点，定义单一主假设；明确随机化单位、样本量/实验周期、SRM 检查、主指标和护栏，并区分统计显著与商业显著。",
+      "3. 做出选择 / Decide: 比较至少两种解释或方案，给出取舍依据、风险和最小验证方案。",
+      "4. 量化验证 / Measure: 主指标：目标转化率或 D7 留存；护栏：投诉、取消、长期留存；ROI：增量收益减研发运营成本。"
+    ],
+    "detail": "从用户行为漏斗找到最大可控折损点，定义单一主假设；明确随机化单位、样本量/实验周期、SRM 检查、主指标和护栏，并区分统计显著与商业显著。",
+    "metrics": "主指标：目标转化率或 D7 留存；护栏：投诉、取消、长期留存；ROI：增量收益减研发运营成本。",
+    "pitfalls": [
+      "直接跳到功能或结论，没有澄清业务目标与用户范围。",
+      "只报一个大盘平均值，没有分群、漏斗和基线。",
+      "没有明确北极星指标、护栏指标与折损点。",
+      "把假设数据当事实，忽略验证成本、风险和 ROI。"
+    ],
+    "answer": "For the question “Improve team invite conversion,” I would identify the largest controllable funnel drop-off, form a falsifiable hypothesis, randomize at the right unit, pre-register the primary metric and guardrails, and decide based on effect size and business impact. I would compare at least two alternatives, state my assumptions, and choose a focused first step. Success would be measured through a clear north star, funnel conversion, guardrails, and an ROI estimate based on explicit assumptions.",
+    "followup": "如果你的首选方案无法提升核心指标，你如何区分是用户需求判断错误、方案执行问题，还是实验设计问题？"
+  },
+  {
+    "id": 50,
+    "category": "实验与增长 Experimentation",
+    "question": "如何防止增长实验损害长期用户信任",
+    "english": "Prevent growth experiments from harming trust",
+    "frameworkEN": "Objective → Hypothesis → Experiment → Metrics → Decision",
+    "frameworkZH": "明确目标与基线 → 提出可证伪假设 → 设计随机对照实验 → 主指标和护栏 → 显著性、效果量与上线决策",
+    "steps": [
+      "1. 框定问题 / Frame: 针对「如何防止增长实验损害长期用户信任」，先澄清目标用户、成功定义、时间范围和限制。",
+      "2. 结构化拆解 / Decompose: 从用户行为漏斗找到最大可控折损点，定义单一主假设；明确随机化单位、样本量/实验周期、SRM 检查、主指标和护栏，并区分统计显著与商业显著。",
+      "3. 做出选择 / Decide: 比较至少两种解释或方案，给出取舍依据、风险和最小验证方案。",
+      "4. 量化验证 / Measure: 主指标：目标转化率或 D7 留存；护栏：投诉、取消、长期留存；ROI：增量收益减研发运营成本。"
+    ],
+    "detail": "从用户行为漏斗找到最大可控折损点，定义单一主假设；明确随机化单位、样本量/实验周期、SRM 检查、主指标和护栏，并区分统计显著与商业显著。",
+    "metrics": "主指标：目标转化率或 D7 留存；护栏：投诉、取消、长期留存；ROI：增量收益减研发运营成本。",
+    "pitfalls": [
+      "直接跳到功能或结论，没有澄清业务目标与用户范围。",
+      "只报一个大盘平均值，没有分群、漏斗和基线。",
+      "没有明确北极星指标、护栏指标与折损点。",
+      "把假设数据当事实，忽略验证成本、风险和 ROI。"
+    ],
+    "answer": "For the question “Prevent growth experiments from harming trust,” I would identify the largest controllable funnel drop-off, form a falsifiable hypothesis, randomize at the right unit, pre-register the primary metric and guardrails, and decide based on effect size and business impact. I would compare at least two alternatives, state my assumptions, and choose a focused first step. Success would be measured through a clear north star, funnel conversion, guardrails, and an ROI estimate based on explicit assumptions.",
+    "followup": "如果你的首选方案无法提升核心指标，你如何区分是用户需求判断错误、方案执行问题，还是实验设计问题？"
+  },
+  {
+    "id": 51,
+    "category": "优先级与执行 Prioritization",
+    "question": "工程资源只够做一个功能，如何排序",
+    "english": "Prioritize with one engineer",
+    "frameworkEN": "Outcome → Constraints → Options → RICE → Risks → Plan",
+    "frameworkZH": "明确目标和资源约束 → 列出候选项 → 用 RICE/ROI 比较 → 考虑依赖与风险 → 沟通取舍并执行",
+    "steps": [
+      "1. 框定问题 / Frame: 针对「工程资源只够做一个功能，如何排序」，先澄清目标用户、成功定义、时间范围和限制。",
+      "2. 结构化拆解 / Decompose: 把候选方案与同一个业务目标绑定，使用 RICE（Reach×Impact×Confidence÷Effort）做初排，再加入客户承诺、技术依赖、风险和可逆性修正。",
+      "3. 做出选择 / Decide: 比较至少两种解释或方案，给出取舍依据、风险和最小验证方案。",
+      "4. 量化验证 / Measure: 北极星：目标成果提升；成本：工程人周；ROI：预期增量价值/总投入；护栏：稳定性和客户信任。"
+    ],
+    "detail": "把候选方案与同一个业务目标绑定，使用 RICE（Reach×Impact×Confidence÷Effort）做初排，再加入客户承诺、技术依赖、风险和可逆性修正。",
+    "metrics": "北极星：目标成果提升；成本：工程人周；ROI：预期增量价值/总投入；护栏：稳定性和客户信任。",
+    "pitfalls": [
+      "直接跳到功能或结论，没有澄清业务目标与用户范围。",
+      "只报一个大盘平均值，没有分群、漏斗和基线。",
+      "没有明确北极星指标、护栏指标与折损点。",
+      "把假设数据当事实，忽略验证成本、风险和 ROI。"
+    ],
+    "answer": "For the question “Prioritize with one engineer,” I would align stakeholders on the outcome, quantify reach, impact, confidence and effort, then explicitly account for contractual obligations, risk and dependencies before making and communicating a decision. I would compare at least two alternatives, state my assumptions, and choose a focused first step. Success would be measured through a clear north star, funnel conversion, guardrails, and an ROI estimate based on explicit assumptions.",
+    "followup": "如果你的首选方案无法提升核心指标，你如何区分是用户需求判断错误、方案执行问题，还是实验设计问题？"
+  },
+  {
+    "id": 52,
+    "category": "优先级与执行 Prioritization",
+    "question": "大客户要求定制功能，是否应该做",
+    "english": "Handle enterprise custom feature request",
+    "frameworkEN": "Outcome → Constraints → Options → RICE → Risks → Plan",
+    "frameworkZH": "明确目标和资源约束 → 列出候选项 → 用 RICE/ROI 比较 → 考虑依赖与风险 → 沟通取舍并执行",
+    "steps": [
+      "1. 框定问题 / Frame: 针对「大客户要求定制功能，是否应该做」，先澄清目标用户、成功定义、时间范围和限制。",
+      "2. 结构化拆解 / Decompose: 把候选方案与同一个业务目标绑定，使用 RICE（Reach×Impact×Confidence÷Effort）做初排，再加入客户承诺、技术依赖、风险和可逆性修正。",
+      "3. 做出选择 / Decide: 比较至少两种解释或方案，给出取舍依据、风险和最小验证方案。",
+      "4. 量化验证 / Measure: 北极星：目标成果提升；成本：工程人周；ROI：预期增量价值/总投入；护栏：稳定性和客户信任。"
+    ],
+    "detail": "把候选方案与同一个业务目标绑定，使用 RICE（Reach×Impact×Confidence÷Effort）做初排，再加入客户承诺、技术依赖、风险和可逆性修正。",
+    "metrics": "北极星：目标成果提升；成本：工程人周；ROI：预期增量价值/总投入；护栏：稳定性和客户信任。",
+    "pitfalls": [
+      "直接跳到功能或结论，没有澄清业务目标与用户范围。",
+      "只报一个大盘平均值，没有分群、漏斗和基线。",
+      "没有明确北极星指标、护栏指标与折损点。",
+      "把假设数据当事实，忽略验证成本、风险和 ROI。"
+    ],
+    "answer": "For the question “Handle enterprise custom feature request,” I would align stakeholders on the outcome, quantify reach, impact, confidence and effort, then explicitly account for contractual obligations, risk and dependencies before making and communicating a decision. I would compare at least two alternatives, state my assumptions, and choose a focused first step. Success would be measured through a clear north star, funnel conversion, guardrails, and an ROI estimate based on explicit assumptions.",
+    "followup": "如果你的首选方案无法提升核心指标，你如何区分是用户需求判断错误、方案执行问题，还是实验设计问题？"
+  },
+  {
+    "id": 53,
+    "category": "优先级与执行 Prioritization",
+    "question": "销售承诺功能但工程排期不足怎么办",
+    "english": "Sales promised feature beyond capacity",
+    "frameworkEN": "Outcome → Constraints → Options → RICE → Risks → Plan",
+    "frameworkZH": "明确目标和资源约束 → 列出候选项 → 用 RICE/ROI 比较 → 考虑依赖与风险 → 沟通取舍并执行",
+    "steps": [
+      "1. 框定问题 / Frame: 针对「销售承诺功能但工程排期不足怎么办」，先澄清目标用户、成功定义、时间范围和限制。",
+      "2. 结构化拆解 / Decompose: 把候选方案与同一个业务目标绑定，使用 RICE（Reach×Impact×Confidence÷Effort）做初排，再加入客户承诺、技术依赖、风险和可逆性修正。",
+      "3. 做出选择 / Decide: 比较至少两种解释或方案，给出取舍依据、风险和最小验证方案。",
+      "4. 量化验证 / Measure: 北极星：目标成果提升；成本：工程人周；ROI：预期增量价值/总投入；护栏：稳定性和客户信任。"
+    ],
+    "detail": "把候选方案与同一个业务目标绑定，使用 RICE（Reach×Impact×Confidence÷Effort）做初排，再加入客户承诺、技术依赖、风险和可逆性修正。",
+    "metrics": "北极星：目标成果提升；成本：工程人周；ROI：预期增量价值/总投入；护栏：稳定性和客户信任。",
+    "pitfalls": [
+      "直接跳到功能或结论，没有澄清业务目标与用户范围。",
+      "只报一个大盘平均值，没有分群、漏斗和基线。",
+      "没有明确北极星指标、护栏指标与折损点。",
+      "把假设数据当事实，忽略验证成本、风险和 ROI。"
+    ],
+    "answer": "For the question “Sales promised feature beyond capacity,” I would align stakeholders on the outcome, quantify reach, impact, confidence and effort, then explicitly account for contractual obligations, risk and dependencies before making and communicating a decision. I would compare at least two alternatives, state my assumptions, and choose a focused first step. Success would be measured through a clear north star, funnel conversion, guardrails, and an ROI estimate based on explicit assumptions.",
+    "followup": "如果你的首选方案无法提升核心指标，你如何区分是用户需求判断错误、方案执行问题，还是实验设计问题？"
+  },
+  {
+    "id": 54,
+    "category": "优先级与执行 Prioritization",
+    "question": "线上严重 Bug 与新功能冲突如何决策",
+    "english": "Choose between production bug and feature",
+    "frameworkEN": "Outcome → Constraints → Options → RICE → Risks → Plan",
+    "frameworkZH": "明确目标和资源约束 → 列出候选项 → 用 RICE/ROI 比较 → 考虑依赖与风险 → 沟通取舍并执行",
+    "steps": [
+      "1. 框定问题 / Frame: 针对「线上严重 Bug 与新功能冲突如何决策」，先澄清目标用户、成功定义、时间范围和限制。",
+      "2. 结构化拆解 / Decompose: 把候选方案与同一个业务目标绑定，使用 RICE（Reach×Impact×Confidence÷Effort）做初排，再加入客户承诺、技术依赖、风险和可逆性修正。",
+      "3. 做出选择 / Decide: 比较至少两种解释或方案，给出取舍依据、风险和最小验证方案。",
+      "4. 量化验证 / Measure: 北极星：目标成果提升；成本：工程人周；ROI：预期增量价值/总投入；护栏：稳定性和客户信任。"
+    ],
+    "detail": "把候选方案与同一个业务目标绑定，使用 RICE（Reach×Impact×Confidence÷Effort）做初排，再加入客户承诺、技术依赖、风险和可逆性修正。",
+    "metrics": "北极星：目标成果提升；成本：工程人周；ROI：预期增量价值/总投入；护栏：稳定性和客户信任。",
+    "pitfalls": [
+      "直接跳到功能或结论，没有澄清业务目标与用户范围。",
+      "只报一个大盘平均值，没有分群、漏斗和基线。",
+      "没有明确北极星指标、护栏指标与折损点。",
+      "把假设数据当事实，忽略验证成本、风险和 ROI。"
+    ],
+    "answer": "For the question “Choose between production bug and feature,” I would align stakeholders on the outcome, quantify reach, impact, confidence and effort, then explicitly account for contractual obligations, risk and dependencies before making and communicating a decision. I would compare at least two alternatives, state my assumptions, and choose a focused first step. Success would be measured through a clear north star, funnel conversion, guardrails, and an ROI estimate based on explicit assumptions.",
+    "followup": "如果你的首选方案无法提升核心指标，你如何区分是用户需求判断错误、方案执行问题，还是实验设计问题？"
+  },
+  {
+    "id": 55,
+    "category": "优先级与执行 Prioritization",
+    "question": "如何制定一个季度产品路线图",
+    "english": "Build quarterly roadmap",
+    "frameworkEN": "Outcome → Constraints → Options → RICE → Risks → Plan",
+    "frameworkZH": "明确目标和资源约束 → 列出候选项 → 用 RICE/ROI 比较 → 考虑依赖与风险 → 沟通取舍并执行",
+    "steps": [
+      "1. 框定问题 / Frame: 针对「如何制定一个季度产品路线图」，先澄清目标用户、成功定义、时间范围和限制。",
+      "2. 结构化拆解 / Decompose: 把候选方案与同一个业务目标绑定，使用 RICE（Reach×Impact×Confidence÷Effort）做初排，再加入客户承诺、技术依赖、风险和可逆性修正。",
+      "3. 做出选择 / Decide: 比较至少两种解释或方案，给出取舍依据、风险和最小验证方案。",
+      "4. 量化验证 / Measure: 北极星：目标成果提升；成本：工程人周；ROI：预期增量价值/总投入；护栏：稳定性和客户信任。"
+    ],
+    "detail": "把候选方案与同一个业务目标绑定，使用 RICE（Reach×Impact×Confidence÷Effort）做初排，再加入客户承诺、技术依赖、风险和可逆性修正。",
+    "metrics": "北极星：目标成果提升；成本：工程人周；ROI：预期增量价值/总投入；护栏：稳定性和客户信任。",
+    "pitfalls": [
+      "直接跳到功能或结论，没有澄清业务目标与用户范围。",
+      "只报一个大盘平均值，没有分群、漏斗和基线。",
+      "没有明确北极星指标、护栏指标与折损点。",
+      "把假设数据当事实，忽略验证成本、风险和 ROI。"
+    ],
+    "answer": "For the question “Build quarterly roadmap,” I would align stakeholders on the outcome, quantify reach, impact, confidence and effort, then explicitly account for contractual obligations, risk and dependencies before making and communicating a decision. I would compare at least two alternatives, state my assumptions, and choose a focused first step. Success would be measured through a clear north star, funnel conversion, guardrails, and an ROI estimate based on explicit assumptions.",
+    "followup": "如果你的首选方案无法提升核心指标，你如何区分是用户需求判断错误、方案执行问题，还是实验设计问题？"
+  },
+  {
+    "id": 56,
+    "category": "优先级与执行 Prioritization",
+    "question": "如何定义 MVP 并决定哪些功能不做",
+    "english": "Scope an MVP",
+    "frameworkEN": "Outcome → Constraints → Options → RICE → Risks → Plan",
+    "frameworkZH": "明确目标和资源约束 → 列出候选项 → 用 RICE/ROI 比较 → 考虑依赖与风险 → 沟通取舍并执行",
+    "steps": [
+      "1. 框定问题 / Frame: 针对「如何定义 MVP 并决定哪些功能不做」，先澄清目标用户、成功定义、时间范围和限制。",
+      "2. 结构化拆解 / Decompose: 把候选方案与同一个业务目标绑定，使用 RICE（Reach×Impact×Confidence÷Effort）做初排，再加入客户承诺、技术依赖、风险和可逆性修正。",
+      "3. 做出选择 / Decide: 比较至少两种解释或方案，给出取舍依据、风险和最小验证方案。",
+      "4. 量化验证 / Measure: 北极星：目标成果提升；成本：工程人周；ROI：预期增量价值/总投入；护栏：稳定性和客户信任。"
+    ],
+    "detail": "把候选方案与同一个业务目标绑定，使用 RICE（Reach×Impact×Confidence÷Effort）做初排，再加入客户承诺、技术依赖、风险和可逆性修正。",
+    "metrics": "北极星：目标成果提升；成本：工程人周；ROI：预期增量价值/总投入；护栏：稳定性和客户信任。",
+    "pitfalls": [
+      "直接跳到功能或结论，没有澄清业务目标与用户范围。",
+      "只报一个大盘平均值，没有分群、漏斗和基线。",
+      "没有明确北极星指标、护栏指标与折损点。",
+      "把假设数据当事实，忽略验证成本、风险和 ROI。"
+    ],
+    "answer": "For the question “Scope an MVP,” I would align stakeholders on the outcome, quantify reach, impact, confidence and effort, then explicitly account for contractual obligations, risk and dependencies before making and communicating a decision. I would compare at least two alternatives, state my assumptions, and choose a focused first step. Success would be measured through a clear north star, funnel conversion, guardrails, and an ROI estimate based on explicit assumptions.",
+    "followup": "如果你的首选方案无法提升核心指标，你如何区分是用户需求判断错误、方案执行问题，还是实验设计问题？"
+  },
+  {
+    "id": 57,
+    "category": "优先级与执行 Prioritization",
+    "question": "AI 功能准确率与响应速度如何权衡",
+    "english": "Trade off AI accuracy vs latency",
+    "frameworkEN": "Outcome → Constraints → Options → RICE → Risks → Plan",
+    "frameworkZH": "明确目标和资源约束 → 列出候选项 → 用 RICE/ROI 比较 → 考虑依赖与风险 → 沟通取舍并执行",
+    "steps": [
+      "1. 框定问题 / Frame: 针对「AI 功能准确率与响应速度如何权衡」，先澄清目标用户、成功定义、时间范围和限制。",
+      "2. 结构化拆解 / Decompose: 把候选方案与同一个业务目标绑定，使用 RICE（Reach×Impact×Confidence÷Effort）做初排，再加入客户承诺、技术依赖、风险和可逆性修正。",
+      "3. 做出选择 / Decide: 比较至少两种解释或方案，给出取舍依据、风险和最小验证方案。",
+      "4. 量化验证 / Measure: 北极星：目标成果提升；成本：工程人周；ROI：预期增量价值/总投入；护栏：稳定性和客户信任。"
+    ],
+    "detail": "把候选方案与同一个业务目标绑定，使用 RICE（Reach×Impact×Confidence÷Effort）做初排，再加入客户承诺、技术依赖、风险和可逆性修正。",
+    "metrics": "北极星：目标成果提升；成本：工程人周；ROI：预期增量价值/总投入；护栏：稳定性和客户信任。",
+    "pitfalls": [
+      "直接跳到功能或结论，没有澄清业务目标与用户范围。",
+      "只报一个大盘平均值，没有分群、漏斗和基线。",
+      "没有明确北极星指标、护栏指标与折损点。",
+      "把假设数据当事实，忽略验证成本、风险和 ROI。"
+    ],
+    "answer": "For the question “Trade off AI accuracy vs latency,” I would align stakeholders on the outcome, quantify reach, impact, confidence and effort, then explicitly account for contractual obligations, risk and dependencies before making and communicating a decision. I would compare at least two alternatives, state my assumptions, and choose a focused first step. Success would be measured through a clear north star, funnel conversion, guardrails, and an ROI estimate based on explicit assumptions.",
+    "followup": "如果你的首选方案无法提升核心指标，你如何区分是用户需求判断错误、方案执行问题，还是实验设计问题？"
+  },
+  {
+    "id": 58,
+    "category": "优先级与执行 Prioritization",
+    "question": "如何判断应该自研还是采购 AI 能力",
+    "english": "Build vs buy AI",
+    "frameworkEN": "Outcome → Constraints → Options → RICE → Risks → Plan",
+    "frameworkZH": "明确目标和资源约束 → 列出候选项 → 用 RICE/ROI 比较 → 考虑依赖与风险 → 沟通取舍并执行",
+    "steps": [
+      "1. 框定问题 / Frame: 针对「如何判断应该自研还是采购 AI 能力」，先澄清目标用户、成功定义、时间范围和限制。",
+      "2. 结构化拆解 / Decompose: 把候选方案与同一个业务目标绑定，使用 RICE（Reach×Impact×Confidence÷Effort）做初排，再加入客户承诺、技术依赖、风险和可逆性修正。",
+      "3. 做出选择 / Decide: 比较至少两种解释或方案，给出取舍依据、风险和最小验证方案。",
+      "4. 量化验证 / Measure: 北极星：目标成果提升；成本：工程人周；ROI：预期增量价值/总投入；护栏：稳定性和客户信任。"
+    ],
+    "detail": "把候选方案与同一个业务目标绑定，使用 RICE（Reach×Impact×Confidence÷Effort）做初排，再加入客户承诺、技术依赖、风险和可逆性修正。",
+    "metrics": "北极星：目标成果提升；成本：工程人周；ROI：预期增量价值/总投入；护栏：稳定性和客户信任。",
+    "pitfalls": [
+      "直接跳到功能或结论，没有澄清业务目标与用户范围。",
+      "只报一个大盘平均值，没有分群、漏斗和基线。",
+      "没有明确北极星指标、护栏指标与折损点。",
+      "把假设数据当事实，忽略验证成本、风险和 ROI。"
+    ],
+    "answer": "For the question “Build vs buy AI,” I would align stakeholders on the outcome, quantify reach, impact, confidence and effort, then explicitly account for contractual obligations, risk and dependencies before making and communicating a decision. I would compare at least two alternatives, state my assumptions, and choose a focused first step. Success would be measured through a clear north star, funnel conversion, guardrails, and an ROI estimate based on explicit assumptions.",
+    "followup": "如果你的首选方案无法提升核心指标，你如何区分是用户需求判断错误、方案执行问题，还是实验设计问题？"
+  },
+  {
+    "id": 59,
+    "category": "优先级与执行 Prioritization",
+    "question": "如何决定关闭一个低使用率功能",
+    "english": "Sunset low usage feature",
+    "frameworkEN": "Outcome → Constraints → Options → RICE → Risks → Plan",
+    "frameworkZH": "明确目标和资源约束 → 列出候选项 → 用 RICE/ROI 比较 → 考虑依赖与风险 → 沟通取舍并执行",
+    "steps": [
+      "1. 框定问题 / Frame: 针对「如何决定关闭一个低使用率功能」，先澄清目标用户、成功定义、时间范围和限制。",
+      "2. 结构化拆解 / Decompose: 把候选方案与同一个业务目标绑定，使用 RICE（Reach×Impact×Confidence÷Effort）做初排，再加入客户承诺、技术依赖、风险和可逆性修正。",
+      "3. 做出选择 / Decide: 比较至少两种解释或方案，给出取舍依据、风险和最小验证方案。",
+      "4. 量化验证 / Measure: 北极星：目标成果提升；成本：工程人周；ROI：预期增量价值/总投入；护栏：稳定性和客户信任。"
+    ],
+    "detail": "把候选方案与同一个业务目标绑定，使用 RICE（Reach×Impact×Confidence÷Effort）做初排，再加入客户承诺、技术依赖、风险和可逆性修正。",
+    "metrics": "北极星：目标成果提升；成本：工程人周；ROI：预期增量价值/总投入；护栏：稳定性和客户信任。",
+    "pitfalls": [
+      "直接跳到功能或结论，没有澄清业务目标与用户范围。",
+      "只报一个大盘平均值，没有分群、漏斗和基线。",
+      "没有明确北极星指标、护栏指标与折损点。",
+      "把假设数据当事实，忽略验证成本、风险和 ROI。"
+    ],
+    "answer": "For the question “Sunset low usage feature,” I would align stakeholders on the outcome, quantify reach, impact, confidence and effort, then explicitly account for contractual obligations, risk and dependencies before making and communicating a decision. I would compare at least two alternatives, state my assumptions, and choose a focused first step. Success would be measured through a clear north star, funnel conversion, guardrails, and an ROI estimate based on explicit assumptions.",
+    "followup": "如果你的首选方案无法提升核心指标，你如何区分是用户需求判断错误、方案执行问题，还是实验设计问题？"
+  },
+  {
+    "id": 60,
+    "category": "优先级与执行 Prioritization",
+    "question": "产品发布延期两周，你如何处理",
+    "english": "Handle two-week launch delay",
+    "frameworkEN": "Outcome → Constraints → Options → RICE → Risks → Plan",
+    "frameworkZH": "明确目标和资源约束 → 列出候选项 → 用 RICE/ROI 比较 → 考虑依赖与风险 → 沟通取舍并执行",
+    "steps": [
+      "1. 框定问题 / Frame: 针对「产品发布延期两周，你如何处理」，先澄清目标用户、成功定义、时间范围和限制。",
+      "2. 结构化拆解 / Decompose: 把候选方案与同一个业务目标绑定，使用 RICE（Reach×Impact×Confidence÷Effort）做初排，再加入客户承诺、技术依赖、风险和可逆性修正。",
+      "3. 做出选择 / Decide: 比较至少两种解释或方案，给出取舍依据、风险和最小验证方案。",
+      "4. 量化验证 / Measure: 北极星：目标成果提升；成本：工程人周；ROI：预期增量价值/总投入；护栏：稳定性和客户信任。"
+    ],
+    "detail": "把候选方案与同一个业务目标绑定，使用 RICE（Reach×Impact×Confidence÷Effort）做初排，再加入客户承诺、技术依赖、风险和可逆性修正。",
+    "metrics": "北极星：目标成果提升；成本：工程人周；ROI：预期增量价值/总投入；护栏：稳定性和客户信任。",
+    "pitfalls": [
+      "直接跳到功能或结论，没有澄清业务目标与用户范围。",
+      "只报一个大盘平均值，没有分群、漏斗和基线。",
+      "没有明确北极星指标、护栏指标与折损点。",
+      "把假设数据当事实，忽略验证成本、风险和 ROI。"
+    ],
+    "answer": "For the question “Handle two-week launch delay,” I would align stakeholders on the outcome, quantify reach, impact, confidence and effort, then explicitly account for contractual obligations, risk and dependencies before making and communicating a decision. I would compare at least two alternatives, state my assumptions, and choose a focused first step. Success would be measured through a clear north star, funnel conversion, guardrails, and an ROI estimate based on explicit assumptions.",
+    "followup": "如果你的首选方案无法提升核心指标，你如何区分是用户需求判断错误、方案执行问题，还是实验设计问题？"
+  },
+  {
+    "id": 61,
+    "category": "产品战略 Strategy",
+    "question": "Netflix 是否应该进入游戏市场",
+    "english": "Should Netflix enter gaming?",
+    "frameworkEN": "Market → Users → Advantage → Economics → Bet → Validation",
+    "frameworkZH": "分析市场规模和变化 → 细分客户与需求 → 竞争优势 → 单位经济模型 → 明确战略选择 → 小规模验证",
+    "steps": [
+      "1. 框定问题 / Frame: 针对「Netflix 是否应该进入游戏市场」，先澄清目标用户、成功定义、时间范围和限制。",
+      "2. 结构化拆解 / Decompose: 明确市场与客户细分、JTBD、现有替代方案和差异化优势；估算 TAM/SAM/SOM 与获客成本、毛利和回本周期，提出可验证的进入或不进入判断。",
+      "3. 做出选择 / Decide: 比较至少两种解释或方案，给出取舍依据、风险和最小验证方案。",
+      "4. 量化验证 / Measure: 北极星：目标客户成功价值事件或净收入留存；护栏：CAC 回本期、毛利率、流失率。"
+    ],
+    "detail": "明确市场与客户细分、JTBD、现有替代方案和差异化优势；估算 TAM/SAM/SOM 与获客成本、毛利和回本周期，提出可验证的进入或不进入判断。",
+    "metrics": "北极星：目标客户成功价值事件或净收入留存；护栏：CAC 回本期、毛利率、流失率。",
+    "pitfalls": [
+      "直接跳到功能或结论，没有澄清业务目标与用户范围。",
+      "只报一个大盘平均值，没有分群、漏斗和基线。",
+      "没有明确北极星指标、护栏指标与折损点。",
+      "把假设数据当事实，忽略验证成本、风险和 ROI。"
+    ],
+    "answer": "For the question “Should Netflix enter gaming?,” I would assess the market, customer pain, competitive differentiation and unit economics, then recommend a focused wedge with explicit assumptions and a time-boxed validation plan. I would compare at least two alternatives, state my assumptions, and choose a focused first step. Success would be measured through a clear north star, funnel conversion, guardrails, and an ROI estimate based on explicit assumptions.",
+    "followup": "如果你的首选方案无法提升核心指标，你如何区分是用户需求判断错误、方案执行问题，还是实验设计问题？"
+  },
+  {
+    "id": 62,
+    "category": "产品战略 Strategy",
+    "question": "Spotify 是否应该推出社交功能",
+    "english": "Should Spotify add social?",
+    "frameworkEN": "Market → Users → Advantage → Economics → Bet → Validation",
+    "frameworkZH": "分析市场规模和变化 → 细分客户与需求 → 竞争优势 → 单位经济模型 → 明确战略选择 → 小规模验证",
+    "steps": [
+      "1. 框定问题 / Frame: 针对「Spotify 是否应该推出社交功能」，先澄清目标用户、成功定义、时间范围和限制。",
+      "2. 结构化拆解 / Decompose: 明确市场与客户细分、JTBD、现有替代方案和差异化优势；估算 TAM/SAM/SOM 与获客成本、毛利和回本周期，提出可验证的进入或不进入判断。",
+      "3. 做出选择 / Decide: 比较至少两种解释或方案，给出取舍依据、风险和最小验证方案。",
+      "4. 量化验证 / Measure: 北极星：目标客户成功价值事件或净收入留存；护栏：CAC 回本期、毛利率、流失率。"
+    ],
+    "detail": "明确市场与客户细分、JTBD、现有替代方案和差异化优势；估算 TAM/SAM/SOM 与获客成本、毛利和回本周期，提出可验证的进入或不进入判断。",
+    "metrics": "北极星：目标客户成功价值事件或净收入留存；护栏：CAC 回本期、毛利率、流失率。",
+    "pitfalls": [
+      "直接跳到功能或结论，没有澄清业务目标与用户范围。",
+      "只报一个大盘平均值，没有分群、漏斗和基线。",
+      "没有明确北极星指标、护栏指标与折损点。",
+      "把假设数据当事实，忽略验证成本、风险和 ROI。"
+    ],
+    "answer": "For the question “Should Spotify add social?,” I would assess the market, customer pain, competitive differentiation and unit economics, then recommend a focused wedge with explicit assumptions and a time-boxed validation plan. I would compare at least two alternatives, state my assumptions, and choose a focused first step. Success would be measured through a clear north star, funnel conversion, guardrails, and an ROI estimate based on explicit assumptions.",
+    "followup": "如果你的首选方案无法提升核心指标，你如何区分是用户需求判断错误、方案执行问题，还是实验设计问题？"
+  },
+  {
+    "id": 63,
+    "category": "产品战略 Strategy",
+    "question": "Notion 如何进入企业大客户市场",
+    "english": "Notion enterprise expansion",
+    "frameworkEN": "Market → Users → Advantage → Economics → Bet → Validation",
+    "frameworkZH": "分析市场规模和变化 → 细分客户与需求 → 竞争优势 → 单位经济模型 → 明确战略选择 → 小规模验证",
+    "steps": [
+      "1. 框定问题 / Frame: 针对「Notion 如何进入企业大客户市场」，先澄清目标用户、成功定义、时间范围和限制。",
+      "2. 结构化拆解 / Decompose: 明确市场与客户细分、JTBD、现有替代方案和差异化优势；估算 TAM/SAM/SOM 与获客成本、毛利和回本周期，提出可验证的进入或不进入判断。",
+      "3. 做出选择 / Decide: 比较至少两种解释或方案，给出取舍依据、风险和最小验证方案。",
+      "4. 量化验证 / Measure: 北极星：目标客户成功价值事件或净收入留存；护栏：CAC 回本期、毛利率、流失率。"
+    ],
+    "detail": "明确市场与客户细分、JTBD、现有替代方案和差异化优势；估算 TAM/SAM/SOM 与获客成本、毛利和回本周期，提出可验证的进入或不进入判断。",
+    "metrics": "北极星：目标客户成功价值事件或净收入留存；护栏：CAC 回本期、毛利率、流失率。",
+    "pitfalls": [
+      "直接跳到功能或结论，没有澄清业务目标与用户范围。",
+      "只报一个大盘平均值，没有分群、漏斗和基线。",
+      "没有明确北极星指标、护栏指标与折损点。",
+      "把假设数据当事实，忽略验证成本、风险和 ROI。"
+    ],
+    "answer": "For the question “Notion enterprise expansion,” I would assess the market, customer pain, competitive differentiation and unit economics, then recommend a focused wedge with explicit assumptions and a time-boxed validation plan. I would compare at least two alternatives, state my assumptions, and choose a focused first step. Success would be measured through a clear north star, funnel conversion, guardrails, and an ROI estimate based on explicit assumptions.",
+    "followup": "如果你的首选方案无法提升核心指标，你如何区分是用户需求判断错误、方案执行问题，还是实验设计问题？"
+  },
+  {
+    "id": 64,
+    "category": "产品战略 Strategy",
+    "question": "一家 B2B SaaS 如何制定 PLG 战略",
+    "english": "B2B SaaS PLG strategy",
+    "frameworkEN": "Market → Users → Advantage → Economics → Bet → Validation",
+    "frameworkZH": "分析市场规模和变化 → 细分客户与需求 → 竞争优势 → 单位经济模型 → 明确战略选择 → 小规模验证",
+    "steps": [
+      "1. 框定问题 / Frame: 针对「一家 B2B SaaS 如何制定 PLG 战略」，先澄清目标用户、成功定义、时间范围和限制。",
+      "2. 结构化拆解 / Decompose: 明确市场与客户细分、JTBD、现有替代方案和差异化优势；估算 TAM/SAM/SOM 与获客成本、毛利和回本周期，提出可验证的进入或不进入判断。",
+      "3. 做出选择 / Decide: 比较至少两种解释或方案，给出取舍依据、风险和最小验证方案。",
+      "4. 量化验证 / Measure: 北极星：目标客户成功价值事件或净收入留存；护栏：CAC 回本期、毛利率、流失率。"
+    ],
+    "detail": "明确市场与客户细分、JTBD、现有替代方案和差异化优势；估算 TAM/SAM/SOM 与获客成本、毛利和回本周期，提出可验证的进入或不进入判断。",
+    "metrics": "北极星：目标客户成功价值事件或净收入留存；护栏：CAC 回本期、毛利率、流失率。",
+    "pitfalls": [
+      "直接跳到功能或结论，没有澄清业务目标与用户范围。",
+      "只报一个大盘平均值，没有分群、漏斗和基线。",
+      "没有明确北极星指标、护栏指标与折损点。",
+      "把假设数据当事实，忽略验证成本、风险和 ROI。"
+    ],
+    "answer": "For the question “B2B SaaS PLG strategy,” I would assess the market, customer pain, competitive differentiation and unit economics, then recommend a focused wedge with explicit assumptions and a time-boxed validation plan. I would compare at least two alternatives, state my assumptions, and choose a focused first step. Success would be measured through a clear north star, funnel conversion, guardrails, and an ROI estimate based on explicit assumptions.",
+    "followup": "如果你的首选方案无法提升核心指标，你如何区分是用户需求判断错误、方案执行问题，还是实验设计问题？"
+  },
+  {
+    "id": 65,
+    "category": "产品战略 Strategy",
+    "question": "ChatGPT 如何服务中小企业团队",
+    "english": "ChatGPT for SMB teams",
+    "frameworkEN": "Market → Users → Advantage → Economics → Bet → Validation",
+    "frameworkZH": "分析市场规模和变化 → 细分客户与需求 → 竞争优势 → 单位经济模型 → 明确战略选择 → 小规模验证",
+    "steps": [
+      "1. 框定问题 / Frame: 针对「ChatGPT 如何服务中小企业团队」，先澄清目标用户、成功定义、时间范围和限制。",
+      "2. 结构化拆解 / Decompose: 明确市场与客户细分、JTBD、现有替代方案和差异化优势；估算 TAM/SAM/SOM 与获客成本、毛利和回本周期，提出可验证的进入或不进入判断。",
+      "3. 做出选择 / Decide: 比较至少两种解释或方案，给出取舍依据、风险和最小验证方案。",
+      "4. 量化验证 / Measure: 北极星：目标客户成功价值事件或净收入留存；护栏：CAC 回本期、毛利率、流失率。"
+    ],
+    "detail": "明确市场与客户细分、JTBD、现有替代方案和差异化优势；估算 TAM/SAM/SOM 与获客成本、毛利和回本周期，提出可验证的进入或不进入判断。",
+    "metrics": "北极星：目标客户成功价值事件或净收入留存；护栏：CAC 回本期、毛利率、流失率。",
+    "pitfalls": [
+      "直接跳到功能或结论，没有澄清业务目标与用户范围。",
+      "只报一个大盘平均值，没有分群、漏斗和基线。",
+      "没有明确北极星指标、护栏指标与折损点。",
+      "把假设数据当事实，忽略验证成本、风险和 ROI。"
+    ],
+    "answer": "For the question “ChatGPT for SMB teams,” I would assess the market, customer pain, competitive differentiation and unit economics, then recommend a focused wedge with explicit assumptions and a time-boxed validation plan. I would compare at least two alternatives, state my assumptions, and choose a focused first step. Success would be measured through a clear north star, funnel conversion, guardrails, and an ROI estimate based on explicit assumptions.",
+    "followup": "如果你的首选方案无法提升核心指标，你如何区分是用户需求判断错误、方案执行问题，还是实验设计问题？"
+  },
+  {
+    "id": 66,
+    "category": "产品战略 Strategy",
+    "question": "AI 搜索创业公司如何与 Google 竞争",
+    "english": "AI search startup vs Google",
+    "frameworkEN": "Market → Users → Advantage → Economics → Bet → Validation",
+    "frameworkZH": "分析市场规模和变化 → 细分客户与需求 → 竞争优势 → 单位经济模型 → 明确战略选择 → 小规模验证",
+    "steps": [
+      "1. 框定问题 / Frame: 针对「AI 搜索创业公司如何与 Google 竞争」，先澄清目标用户、成功定义、时间范围和限制。",
+      "2. 结构化拆解 / Decompose: 明确市场与客户细分、JTBD、现有替代方案和差异化优势；估算 TAM/SAM/SOM 与获客成本、毛利和回本周期，提出可验证的进入或不进入判断。",
+      "3. 做出选择 / Decide: 比较至少两种解释或方案，给出取舍依据、风险和最小验证方案。",
+      "4. 量化验证 / Measure: 北极星：目标客户成功价值事件或净收入留存；护栏：CAC 回本期、毛利率、流失率。"
+    ],
+    "detail": "明确市场与客户细分、JTBD、现有替代方案和差异化优势；估算 TAM/SAM/SOM 与获客成本、毛利和回本周期，提出可验证的进入或不进入判断。",
+    "metrics": "北极星：目标客户成功价值事件或净收入留存；护栏：CAC 回本期、毛利率、流失率。",
+    "pitfalls": [
+      "直接跳到功能或结论，没有澄清业务目标与用户范围。",
+      "只报一个大盘平均值，没有分群、漏斗和基线。",
+      "没有明确北极星指标、护栏指标与折损点。",
+      "把假设数据当事实，忽略验证成本、风险和 ROI。"
+    ],
+    "answer": "For the question “AI search startup vs Google,” I would assess the market, customer pain, competitive differentiation and unit economics, then recommend a focused wedge with explicit assumptions and a time-boxed validation plan. I would compare at least two alternatives, state my assumptions, and choose a focused first step. Success would be measured through a clear north star, funnel conversion, guardrails, and an ROI estimate based on explicit assumptions.",
+    "followup": "如果你的首选方案无法提升核心指标，你如何区分是用户需求判断错误、方案执行问题，还是实验设计问题？"
+  },
+  {
+    "id": 67,
+    "category": "产品战略 Strategy",
+    "question": "何时应该从单一产品扩展到平台",
+    "english": "When expand from product to platform",
+    "frameworkEN": "Market → Users → Advantage → Economics → Bet → Validation",
+    "frameworkZH": "分析市场规模和变化 → 细分客户与需求 → 竞争优势 → 单位经济模型 → 明确战略选择 → 小规模验证",
+    "steps": [
+      "1. 框定问题 / Frame: 针对「何时应该从单一产品扩展到平台」，先澄清目标用户、成功定义、时间范围和限制。",
+      "2. 结构化拆解 / Decompose: 明确市场与客户细分、JTBD、现有替代方案和差异化优势；估算 TAM/SAM/SOM 与获客成本、毛利和回本周期，提出可验证的进入或不进入判断。",
+      "3. 做出选择 / Decide: 比较至少两种解释或方案，给出取舍依据、风险和最小验证方案。",
+      "4. 量化验证 / Measure: 北极星：目标客户成功价值事件或净收入留存；护栏：CAC 回本期、毛利率、流失率。"
+    ],
+    "detail": "明确市场与客户细分、JTBD、现有替代方案和差异化优势；估算 TAM/SAM/SOM 与获客成本、毛利和回本周期，提出可验证的进入或不进入判断。",
+    "metrics": "北极星：目标客户成功价值事件或净收入留存；护栏：CAC 回本期、毛利率、流失率。",
+    "pitfalls": [
+      "直接跳到功能或结论，没有澄清业务目标与用户范围。",
+      "只报一个大盘平均值，没有分群、漏斗和基线。",
+      "没有明确北极星指标、护栏指标与折损点。",
+      "把假设数据当事实，忽略验证成本、风险和 ROI。"
+    ],
+    "answer": "For the question “When expand from product to platform,” I would assess the market, customer pain, competitive differentiation and unit economics, then recommend a focused wedge with explicit assumptions and a time-boxed validation plan. I would compare at least two alternatives, state my assumptions, and choose a focused first step. Success would be measured through a clear north star, funnel conversion, guardrails, and an ROI estimate based on explicit assumptions.",
+    "followup": "如果你的首选方案无法提升核心指标，你如何区分是用户需求判断错误、方案执行问题，还是实验设计问题？"
+  },
+  {
+    "id": 68,
+    "category": "产品战略 Strategy",
+    "question": "如何评估进入一个新国家市场",
+    "english": "Enter a new country",
+    "frameworkEN": "Market → Users → Advantage → Economics → Bet → Validation",
+    "frameworkZH": "分析市场规模和变化 → 细分客户与需求 → 竞争优势 → 单位经济模型 → 明确战略选择 → 小规模验证",
+    "steps": [
+      "1. 框定问题 / Frame: 针对「如何评估进入一个新国家市场」，先澄清目标用户、成功定义、时间范围和限制。",
+      "2. 结构化拆解 / Decompose: 明确市场与客户细分、JTBD、现有替代方案和差异化优势；估算 TAM/SAM/SOM 与获客成本、毛利和回本周期，提出可验证的进入或不进入判断。",
+      "3. 做出选择 / Decide: 比较至少两种解释或方案，给出取舍依据、风险和最小验证方案。",
+      "4. 量化验证 / Measure: 北极星：目标客户成功价值事件或净收入留存；护栏：CAC 回本期、毛利率、流失率。"
+    ],
+    "detail": "明确市场与客户细分、JTBD、现有替代方案和差异化优势；估算 TAM/SAM/SOM 与获客成本、毛利和回本周期，提出可验证的进入或不进入判断。",
+    "metrics": "北极星：目标客户成功价值事件或净收入留存；护栏：CAC 回本期、毛利率、流失率。",
+    "pitfalls": [
+      "直接跳到功能或结论，没有澄清业务目标与用户范围。",
+      "只报一个大盘平均值，没有分群、漏斗和基线。",
+      "没有明确北极星指标、护栏指标与折损点。",
+      "把假设数据当事实，忽略验证成本、风险和 ROI。"
+    ],
+    "answer": "For the question “Enter a new country,” I would assess the market, customer pain, competitive differentiation and unit economics, then recommend a focused wedge with explicit assumptions and a time-boxed validation plan. I would compare at least two alternatives, state my assumptions, and choose a focused first step. Success would be measured through a clear north star, funnel conversion, guardrails, and an ROI estimate based on explicit assumptions.",
+    "followup": "如果你的首选方案无法提升核心指标，你如何区分是用户需求判断错误、方案执行问题，还是实验设计问题？"
+  },
+  {
+    "id": 69,
+    "category": "产品战略 Strategy",
+    "question": "如何选择 AI Agent 产品的首个垂直行业",
+    "english": "Choose first AI agent vertical",
+    "frameworkEN": "Market → Users → Advantage → Economics → Bet → Validation",
+    "frameworkZH": "分析市场规模和变化 → 细分客户与需求 → 竞争优势 → 单位经济模型 → 明确战略选择 → 小规模验证",
+    "steps": [
+      "1. 框定问题 / Frame: 针对「如何选择 AI Agent 产品的首个垂直行业」，先澄清目标用户、成功定义、时间范围和限制。",
+      "2. 结构化拆解 / Decompose: 明确市场与客户细分、JTBD、现有替代方案和差异化优势；估算 TAM/SAM/SOM 与获客成本、毛利和回本周期，提出可验证的进入或不进入判断。",
+      "3. 做出选择 / Decide: 比较至少两种解释或方案，给出取舍依据、风险和最小验证方案。",
+      "4. 量化验证 / Measure: 北极星：目标客户成功价值事件或净收入留存；护栏：CAC 回本期、毛利率、流失率。"
+    ],
+    "detail": "明确市场与客户细分、JTBD、现有替代方案和差异化优势；估算 TAM/SAM/SOM 与获客成本、毛利和回本周期，提出可验证的进入或不进入判断。",
+    "metrics": "北极星：目标客户成功价值事件或净收入留存；护栏：CAC 回本期、毛利率、流失率。",
+    "pitfalls": [
+      "直接跳到功能或结论，没有澄清业务目标与用户范围。",
+      "只报一个大盘平均值，没有分群、漏斗和基线。",
+      "没有明确北极星指标、护栏指标与折损点。",
+      "把假设数据当事实，忽略验证成本、风险和 ROI。"
+    ],
+    "answer": "For the question “Choose first AI agent vertical,” I would assess the market, customer pain, competitive differentiation and unit economics, then recommend a focused wedge with explicit assumptions and a time-boxed validation plan. I would compare at least two alternatives, state my assumptions, and choose a focused first step. Success would be measured through a clear north star, funnel conversion, guardrails, and an ROI estimate based on explicit assumptions.",
+    "followup": "如果你的首选方案无法提升核心指标，你如何区分是用户需求判断错误、方案执行问题，还是实验设计问题？"
+  },
+  {
+    "id": 70,
+    "category": "产品战略 Strategy",
+    "question": "面对低价竞品应该降价吗",
+    "english": "Respond to low-price competitor",
+    "frameworkEN": "Market → Users → Advantage → Economics → Bet → Validation",
+    "frameworkZH": "分析市场规模和变化 → 细分客户与需求 → 竞争优势 → 单位经济模型 → 明确战略选择 → 小规模验证",
+    "steps": [
+      "1. 框定问题 / Frame: 针对「面对低价竞品应该降价吗」，先澄清目标用户、成功定义、时间范围和限制。",
+      "2. 结构化拆解 / Decompose: 明确市场与客户细分、JTBD、现有替代方案和差异化优势；估算 TAM/SAM/SOM 与获客成本、毛利和回本周期，提出可验证的进入或不进入判断。",
+      "3. 做出选择 / Decide: 比较至少两种解释或方案，给出取舍依据、风险和最小验证方案。",
+      "4. 量化验证 / Measure: 北极星：目标客户成功价值事件或净收入留存；护栏：CAC 回本期、毛利率、流失率。"
+    ],
+    "detail": "明确市场与客户细分、JTBD、现有替代方案和差异化优势；估算 TAM/SAM/SOM 与获客成本、毛利和回本周期，提出可验证的进入或不进入判断。",
+    "metrics": "北极星：目标客户成功价值事件或净收入留存；护栏：CAC 回本期、毛利率、流失率。",
+    "pitfalls": [
+      "直接跳到功能或结论，没有澄清业务目标与用户范围。",
+      "只报一个大盘平均值，没有分群、漏斗和基线。",
+      "没有明确北极星指标、护栏指标与折损点。",
+      "把假设数据当事实，忽略验证成本、风险和 ROI。"
+    ],
+    "answer": "For the question “Respond to low-price competitor,” I would assess the market, customer pain, competitive differentiation and unit economics, then recommend a focused wedge with explicit assumptions and a time-boxed validation plan. I would compare at least two alternatives, state my assumptions, and choose a focused first step. Success would be measured through a clear north star, funnel conversion, guardrails, and an ROI estimate based on explicit assumptions.",
+    "followup": "如果你的首选方案无法提升核心指标，你如何区分是用户需求判断错误、方案执行问题，还是实验设计问题？"
+  },
+  {
+    "id": 71,
+    "category": "AI PM / Technical PM",
+    "question": "如何设计企业内部 Text2SQL Agent",
+    "english": "Design Text2SQL agent",
+    "frameworkEN": "Workflow → Baseline → Architecture → Evals → Guardrails → ROI",
+    "frameworkZH": "拆解用户工作流和人工基线 → 选择模型与工具架构 → 设计离线评测 → 线上护栏与人工兜底 → 计算单任务成本与收益",
+    "steps": [
+      "1. 框定问题 / Frame: 针对「如何设计企业内部 Text2SQL Agent」，先澄清目标用户、成功定义、时间范围和限制。",
+      "2. 结构化拆解 / Decompose: 从真实用户任务定义输入、工具、输出和人工介入点；建立 golden set，按任务成功率、准确率、引用有效性、延迟和成本评估，分开离线评测与线上真实使用。",
+      "3. 做出选择 / Decide: 比较至少两种解释或方案，给出取舍依据、风险和最小验证方案。",
+      "4. 量化验证 / Measure: 北极星：每周成功完成的 AI 任务；护栏：幻觉率、P95 延迟、人工接管率、每任务成本。"
+    ],
+    "detail": "从真实用户任务定义输入、工具、输出和人工介入点；建立 golden set，按任务成功率、准确率、引用有效性、延迟和成本评估，分开离线评测与线上真实使用。",
+    "metrics": "北极星：每周成功完成的 AI 任务；护栏：幻觉率、P95 延迟、人工接管率、每任务成本。",
+    "pitfalls": [
+      "直接跳到功能或结论，没有澄清业务目标与用户范围。",
+      "只报一个大盘平均值，没有分群、漏斗和基线。",
+      "没有明确北极星指标、护栏指标与折损点。",
+      "把假设数据当事实，忽略验证成本、风险和 ROI。"
+    ],
+    "answer": "For the question “Design Text2SQL agent,” I would start with the user workflow and a non-AI baseline. Then I would define a minimal architecture, a representative evaluation set, fallback paths, and launch gates for task success, latency, safety and unit cost. I would compare at least two alternatives, state my assumptions, and choose a focused first step. Success would be measured through a clear north star, funnel conversion, guardrails, and an ROI estimate based on explicit assumptions.",
+    "followup": "如果你的首选方案无法提升核心指标，你如何区分是用户需求判断错误、方案执行问题，还是实验设计问题？"
+  },
+  {
+    "id": 72,
+    "category": "AI PM / Technical PM",
+    "question": "如何评估 RAG 搜索系统质量",
+    "english": "Evaluate RAG quality",
+    "frameworkEN": "Workflow → Baseline → Architecture → Evals → Guardrails → ROI",
+    "frameworkZH": "拆解用户工作流和人工基线 → 选择模型与工具架构 → 设计离线评测 → 线上护栏与人工兜底 → 计算单任务成本与收益",
+    "steps": [
+      "1. 框定问题 / Frame: 针对「如何评估 RAG 搜索系统质量」，先澄清目标用户、成功定义、时间范围和限制。",
+      "2. 结构化拆解 / Decompose: 从真实用户任务定义输入、工具、输出和人工介入点；建立 golden set，按任务成功率、准确率、引用有效性、延迟和成本评估，分开离线评测与线上真实使用。",
+      "3. 做出选择 / Decide: 比较至少两种解释或方案，给出取舍依据、风险和最小验证方案。",
+      "4. 量化验证 / Measure: 北极星：每周成功完成的 AI 任务；护栏：幻觉率、P95 延迟、人工接管率、每任务成本。"
+    ],
+    "detail": "从真实用户任务定义输入、工具、输出和人工介入点；建立 golden set，按任务成功率、准确率、引用有效性、延迟和成本评估，分开离线评测与线上真实使用。",
+    "metrics": "北极星：每周成功完成的 AI 任务；护栏：幻觉率、P95 延迟、人工接管率、每任务成本。",
+    "pitfalls": [
+      "直接跳到功能或结论，没有澄清业务目标与用户范围。",
+      "只报一个大盘平均值，没有分群、漏斗和基线。",
+      "没有明确北极星指标、护栏指标与折损点。",
+      "把假设数据当事实，忽略验证成本、风险和 ROI。"
+    ],
+    "answer": "For the question “Evaluate RAG quality,” I would start with the user workflow and a non-AI baseline. Then I would define a minimal architecture, a representative evaluation set, fallback paths, and launch gates for task success, latency, safety and unit cost. I would compare at least two alternatives, state my assumptions, and choose a focused first step. Success would be measured through a clear north star, funnel conversion, guardrails, and an ROI estimate based on explicit assumptions.",
+    "followup": "如果你的首选方案无法提升核心指标，你如何区分是用户需求判断错误、方案执行问题，还是实验设计问题？"
+  },
+  {
+    "id": 73,
+    "category": "AI PM / Technical PM",
+    "question": "如何设计语音助手的多轮对话体验",
+    "english": "Design multi-turn voice assistant",
+    "frameworkEN": "Workflow → Baseline → Architecture → Evals → Guardrails → ROI",
+    "frameworkZH": "拆解用户工作流和人工基线 → 选择模型与工具架构 → 设计离线评测 → 线上护栏与人工兜底 → 计算单任务成本与收益",
+    "steps": [
+      "1. 框定问题 / Frame: 针对「如何设计语音助手的多轮对话体验」，先澄清目标用户、成功定义、时间范围和限制。",
+      "2. 结构化拆解 / Decompose: 从真实用户任务定义输入、工具、输出和人工介入点；建立 golden set，按任务成功率、准确率、引用有效性、延迟和成本评估，分开离线评测与线上真实使用。",
+      "3. 做出选择 / Decide: 比较至少两种解释或方案，给出取舍依据、风险和最小验证方案。",
+      "4. 量化验证 / Measure: 北极星：每周成功完成的 AI 任务；护栏：幻觉率、P95 延迟、人工接管率、每任务成本。"
+    ],
+    "detail": "从真实用户任务定义输入、工具、输出和人工介入点；建立 golden set，按任务成功率、准确率、引用有效性、延迟和成本评估，分开离线评测与线上真实使用。",
+    "metrics": "北极星：每周成功完成的 AI 任务；护栏：幻觉率、P95 延迟、人工接管率、每任务成本。",
+    "pitfalls": [
+      "直接跳到功能或结论，没有澄清业务目标与用户范围。",
+      "只报一个大盘平均值，没有分群、漏斗和基线。",
+      "没有明确北极星指标、护栏指标与折损点。",
+      "把假设数据当事实，忽略验证成本、风险和 ROI。"
+    ],
+    "answer": "For the question “Design multi-turn voice assistant,” I would start with the user workflow and a non-AI baseline. Then I would define a minimal architecture, a representative evaluation set, fallback paths, and launch gates for task success, latency, safety and unit cost. I would compare at least two alternatives, state my assumptions, and choose a focused first step. Success would be measured through a clear north star, funnel conversion, guardrails, and an ROI estimate based on explicit assumptions.",
+    "followup": "如果你的首选方案无法提升核心指标，你如何区分是用户需求判断错误、方案执行问题，还是实验设计问题？"
+  },
+  {
+    "id": 74,
+    "category": "AI PM / Technical PM",
+    "question": "如何处理 LLM 幻觉与错误答案",
+    "english": "Reduce LLM hallucinations",
+    "frameworkEN": "Workflow → Baseline → Architecture → Evals → Guardrails → ROI",
+    "frameworkZH": "拆解用户工作流和人工基线 → 选择模型与工具架构 → 设计离线评测 → 线上护栏与人工兜底 → 计算单任务成本与收益",
+    "steps": [
+      "1. 框定问题 / Frame: 针对「如何处理 LLM 幻觉与错误答案」，先澄清目标用户、成功定义、时间范围和限制。",
+      "2. 结构化拆解 / Decompose: 从真实用户任务定义输入、工具、输出和人工介入点；建立 golden set，按任务成功率、准确率、引用有效性、延迟和成本评估，分开离线评测与线上真实使用。",
+      "3. 做出选择 / Decide: 比较至少两种解释或方案，给出取舍依据、风险和最小验证方案。",
+      "4. 量化验证 / Measure: 北极星：每周成功完成的 AI 任务；护栏：幻觉率、P95 延迟、人工接管率、每任务成本。"
+    ],
+    "detail": "从真实用户任务定义输入、工具、输出和人工介入点；建立 golden set，按任务成功率、准确率、引用有效性、延迟和成本评估，分开离线评测与线上真实使用。",
+    "metrics": "北极星：每周成功完成的 AI 任务；护栏：幻觉率、P95 延迟、人工接管率、每任务成本。",
+    "pitfalls": [
+      "直接跳到功能或结论，没有澄清业务目标与用户范围。",
+      "只报一个大盘平均值，没有分群、漏斗和基线。",
+      "没有明确北极星指标、护栏指标与折损点。",
+      "把假设数据当事实，忽略验证成本、风险和 ROI。"
+    ],
+    "answer": "For the question “Reduce LLM hallucinations,” I would start with the user workflow and a non-AI baseline. Then I would define a minimal architecture, a representative evaluation set, fallback paths, and launch gates for task success, latency, safety and unit cost. I would compare at least two alternatives, state my assumptions, and choose a focused first step. Success would be measured through a clear north star, funnel conversion, guardrails, and an ROI estimate based on explicit assumptions.",
+    "followup": "如果你的首选方案无法提升核心指标，你如何区分是用户需求判断错误、方案执行问题，还是实验设计问题？"
+  },
+  {
+    "id": 75,
+    "category": "AI PM / Technical PM",
+    "question": "如何设计 Human-in-the-loop 审核流程",
+    "english": "Design human-in-loop review",
+    "frameworkEN": "Workflow → Baseline → Architecture → Evals → Guardrails → ROI",
+    "frameworkZH": "拆解用户工作流和人工基线 → 选择模型与工具架构 → 设计离线评测 → 线上护栏与人工兜底 → 计算单任务成本与收益",
+    "steps": [
+      "1. 框定问题 / Frame: 针对「如何设计 Human-in-the-loop 审核流程」，先澄清目标用户、成功定义、时间范围和限制。",
+      "2. 结构化拆解 / Decompose: 从真实用户任务定义输入、工具、输出和人工介入点；建立 golden set，按任务成功率、准确率、引用有效性、延迟和成本评估，分开离线评测与线上真实使用。",
+      "3. 做出选择 / Decide: 比较至少两种解释或方案，给出取舍依据、风险和最小验证方案。",
+      "4. 量化验证 / Measure: 北极星：每周成功完成的 AI 任务；护栏：幻觉率、P95 延迟、人工接管率、每任务成本。"
+    ],
+    "detail": "从真实用户任务定义输入、工具、输出和人工介入点；建立 golden set，按任务成功率、准确率、引用有效性、延迟和成本评估，分开离线评测与线上真实使用。",
+    "metrics": "北极星：每周成功完成的 AI 任务；护栏：幻觉率、P95 延迟、人工接管率、每任务成本。",
+    "pitfalls": [
+      "直接跳到功能或结论，没有澄清业务目标与用户范围。",
+      "只报一个大盘平均值，没有分群、漏斗和基线。",
+      "没有明确北极星指标、护栏指标与折损点。",
+      "把假设数据当事实，忽略验证成本、风险和 ROI。"
+    ],
+    "answer": "For the question “Design human-in-loop review,” I would start with the user workflow and a non-AI baseline. Then I would define a minimal architecture, a representative evaluation set, fallback paths, and launch gates for task success, latency, safety and unit cost. I would compare at least two alternatives, state my assumptions, and choose a focused first step. Success would be measured through a clear north star, funnel conversion, guardrails, and an ROI estimate based on explicit assumptions.",
+    "followup": "如果你的首选方案无法提升核心指标，你如何区分是用户需求判断错误、方案执行问题，还是实验设计问题？"
+  },
+  {
+    "id": 76,
+    "category": "AI PM / Technical PM",
+    "question": "如何衡量 AI 产品每任务成本和 ROI",
+    "english": "Calculate AI cost and ROI",
+    "frameworkEN": "Workflow → Baseline → Architecture → Evals → Guardrails → ROI",
+    "frameworkZH": "拆解用户工作流和人工基线 → 选择模型与工具架构 → 设计离线评测 → 线上护栏与人工兜底 → 计算单任务成本与收益",
+    "steps": [
+      "1. 框定问题 / Frame: 针对「如何衡量 AI 产品每任务成本和 ROI」，先澄清目标用户、成功定义、时间范围和限制。",
+      "2. 结构化拆解 / Decompose: 从真实用户任务定义输入、工具、输出和人工介入点；建立 golden set，按任务成功率、准确率、引用有效性、延迟和成本评估，分开离线评测与线上真实使用。",
+      "3. 做出选择 / Decide: 比较至少两种解释或方案，给出取舍依据、风险和最小验证方案。",
+      "4. 量化验证 / Measure: 北极星：每周成功完成的 AI 任务；护栏：幻觉率、P95 延迟、人工接管率、每任务成本。"
+    ],
+    "detail": "从真实用户任务定义输入、工具、输出和人工介入点；建立 golden set，按任务成功率、准确率、引用有效性、延迟和成本评估，分开离线评测与线上真实使用。",
+    "metrics": "北极星：每周成功完成的 AI 任务；护栏：幻觉率、P95 延迟、人工接管率、每任务成本。",
+    "pitfalls": [
+      "直接跳到功能或结论，没有澄清业务目标与用户范围。",
+      "只报一个大盘平均值，没有分群、漏斗和基线。",
+      "没有明确北极星指标、护栏指标与折损点。",
+      "把假设数据当事实，忽略验证成本、风险和 ROI。"
+    ],
+    "answer": "For the question “Calculate AI cost and ROI,” I would start with the user workflow and a non-AI baseline. Then I would define a minimal architecture, a representative evaluation set, fallback paths, and launch gates for task success, latency, safety and unit cost. I would compare at least two alternatives, state my assumptions, and choose a focused first step. Success would be measured through a clear north star, funnel conversion, guardrails, and an ROI estimate based on explicit assumptions.",
+    "followup": "如果你的首选方案无法提升核心指标，你如何区分是用户需求判断错误、方案执行问题，还是实验设计问题？"
+  },
+  {
+    "id": 77,
+    "category": "AI PM / Technical PM",
+    "question": "如何选择 Prompt、RAG 或 Fine-tuning",
+    "english": "Choose prompt vs RAG vs fine-tuning",
+    "frameworkEN": "Workflow → Baseline → Architecture → Evals → Guardrails → ROI",
+    "frameworkZH": "拆解用户工作流和人工基线 → 选择模型与工具架构 → 设计离线评测 → 线上护栏与人工兜底 → 计算单任务成本与收益",
+    "steps": [
+      "1. 框定问题 / Frame: 针对「如何选择 Prompt、RAG 或 Fine-tuning」，先澄清目标用户、成功定义、时间范围和限制。",
+      "2. 结构化拆解 / Decompose: 从真实用户任务定义输入、工具、输出和人工介入点；建立 golden set，按任务成功率、准确率、引用有效性、延迟和成本评估，分开离线评测与线上真实使用。",
+      "3. 做出选择 / Decide: 比较至少两种解释或方案，给出取舍依据、风险和最小验证方案。",
+      "4. 量化验证 / Measure: 北极星：每周成功完成的 AI 任务；护栏：幻觉率、P95 延迟、人工接管率、每任务成本。"
+    ],
+    "detail": "从真实用户任务定义输入、工具、输出和人工介入点；建立 golden set，按任务成功率、准确率、引用有效性、延迟和成本评估，分开离线评测与线上真实使用。",
+    "metrics": "北极星：每周成功完成的 AI 任务；护栏：幻觉率、P95 延迟、人工接管率、每任务成本。",
+    "pitfalls": [
+      "直接跳到功能或结论，没有澄清业务目标与用户范围。",
+      "只报一个大盘平均值，没有分群、漏斗和基线。",
+      "没有明确北极星指标、护栏指标与折损点。",
+      "把假设数据当事实，忽略验证成本、风险和 ROI。"
+    ],
+    "answer": "For the question “Choose prompt vs RAG vs fine-tuning,” I would start with the user workflow and a non-AI baseline. Then I would define a minimal architecture, a representative evaluation set, fallback paths, and launch gates for task success, latency, safety and unit cost. I would compare at least two alternatives, state my assumptions, and choose a focused first step. Success would be measured through a clear north star, funnel conversion, guardrails, and an ROI estimate based on explicit assumptions.",
+    "followup": "如果你的首选方案无法提升核心指标，你如何区分是用户需求判断错误、方案执行问题，还是实验设计问题？"
+  },
+  {
+    "id": 78,
+    "category": "AI PM / Technical PM",
+    "question": "如何设计 AI Agent 的工具调用失败兜底",
+    "english": "Handle agent tool failure",
+    "frameworkEN": "Workflow → Baseline → Architecture → Evals → Guardrails → ROI",
+    "frameworkZH": "拆解用户工作流和人工基线 → 选择模型与工具架构 → 设计离线评测 → 线上护栏与人工兜底 → 计算单任务成本与收益",
+    "steps": [
+      "1. 框定问题 / Frame: 针对「如何设计 AI Agent 的工具调用失败兜底」，先澄清目标用户、成功定义、时间范围和限制。",
+      "2. 结构化拆解 / Decompose: 从真实用户任务定义输入、工具、输出和人工介入点；建立 golden set，按任务成功率、准确率、引用有效性、延迟和成本评估，分开离线评测与线上真实使用。",
+      "3. 做出选择 / Decide: 比较至少两种解释或方案，给出取舍依据、风险和最小验证方案。",
+      "4. 量化验证 / Measure: 北极星：每周成功完成的 AI 任务；护栏：幻觉率、P95 延迟、人工接管率、每任务成本。"
+    ],
+    "detail": "从真实用户任务定义输入、工具、输出和人工介入点；建立 golden set，按任务成功率、准确率、引用有效性、延迟和成本评估，分开离线评测与线上真实使用。",
+    "metrics": "北极星：每周成功完成的 AI 任务；护栏：幻觉率、P95 延迟、人工接管率、每任务成本。",
+    "pitfalls": [
+      "直接跳到功能或结论，没有澄清业务目标与用户范围。",
+      "只报一个大盘平均值，没有分群、漏斗和基线。",
+      "没有明确北极星指标、护栏指标与折损点。",
+      "把假设数据当事实，忽略验证成本、风险和 ROI。"
+    ],
+    "answer": "For the question “Handle agent tool failure,” I would start with the user workflow and a non-AI baseline. Then I would define a minimal architecture, a representative evaluation set, fallback paths, and launch gates for task success, latency, safety and unit cost. I would compare at least two alternatives, state my assumptions, and choose a focused first step. Success would be measured through a clear north star, funnel conversion, guardrails, and an ROI estimate based on explicit assumptions.",
+    "followup": "如果你的首选方案无法提升核心指标，你如何区分是用户需求判断错误、方案执行问题，还是实验设计问题？"
+  },
+  {
+    "id": 79,
+    "category": "AI PM / Technical PM",
+    "question": "如何设计多模态作品评审系统",
+    "english": "Design multimodal portfolio review",
+    "frameworkEN": "Workflow → Baseline → Architecture → Evals → Guardrails → ROI",
+    "frameworkZH": "拆解用户工作流和人工基线 → 选择模型与工具架构 → 设计离线评测 → 线上护栏与人工兜底 → 计算单任务成本与收益",
+    "steps": [
+      "1. 框定问题 / Frame: 针对「如何设计多模态作品评审系统」，先澄清目标用户、成功定义、时间范围和限制。",
+      "2. 结构化拆解 / Decompose: 从真实用户任务定义输入、工具、输出和人工介入点；建立 golden set，按任务成功率、准确率、引用有效性、延迟和成本评估，分开离线评测与线上真实使用。",
+      "3. 做出选择 / Decide: 比较至少两种解释或方案，给出取舍依据、风险和最小验证方案。",
+      "4. 量化验证 / Measure: 北极星：每周成功完成的 AI 任务；护栏：幻觉率、P95 延迟、人工接管率、每任务成本。"
+    ],
+    "detail": "从真实用户任务定义输入、工具、输出和人工介入点；建立 golden set，按任务成功率、准确率、引用有效性、延迟和成本评估，分开离线评测与线上真实使用。",
+    "metrics": "北极星：每周成功完成的 AI 任务；护栏：幻觉率、P95 延迟、人工接管率、每任务成本。",
+    "pitfalls": [
+      "直接跳到功能或结论，没有澄清业务目标与用户范围。",
+      "只报一个大盘平均值，没有分群、漏斗和基线。",
+      "没有明确北极星指标、护栏指标与折损点。",
+      "把假设数据当事实，忽略验证成本、风险和 ROI。"
+    ],
+    "answer": "For the question “Design multimodal portfolio review,” I would start with the user workflow and a non-AI baseline. Then I would define a minimal architecture, a representative evaluation set, fallback paths, and launch gates for task success, latency, safety and unit cost. I would compare at least two alternatives, state my assumptions, and choose a focused first step. Success would be measured through a clear north star, funnel conversion, guardrails, and an ROI estimate based on explicit assumptions.",
+    "followup": "如果你的首选方案无法提升核心指标，你如何区分是用户需求判断错误、方案执行问题，还是实验设计问题？"
+  },
+  {
+    "id": 80,
+    "category": "AI PM / Technical PM",
+    "question": "如何为 AI 功能建立离线与线上评测体系",
+    "english": "Build offline and online AI evals",
+    "frameworkEN": "Workflow → Baseline → Architecture → Evals → Guardrails → ROI",
+    "frameworkZH": "拆解用户工作流和人工基线 → 选择模型与工具架构 → 设计离线评测 → 线上护栏与人工兜底 → 计算单任务成本与收益",
+    "steps": [
+      "1. 框定问题 / Frame: 针对「如何为 AI 功能建立离线与线上评测体系」，先澄清目标用户、成功定义、时间范围和限制。",
+      "2. 结构化拆解 / Decompose: 从真实用户任务定义输入、工具、输出和人工介入点；建立 golden set，按任务成功率、准确率、引用有效性、延迟和成本评估，分开离线评测与线上真实使用。",
+      "3. 做出选择 / Decide: 比较至少两种解释或方案，给出取舍依据、风险和最小验证方案。",
+      "4. 量化验证 / Measure: 北极星：每周成功完成的 AI 任务；护栏：幻觉率、P95 延迟、人工接管率、每任务成本。"
+    ],
+    "detail": "从真实用户任务定义输入、工具、输出和人工介入点；建立 golden set，按任务成功率、准确率、引用有效性、延迟和成本评估，分开离线评测与线上真实使用。",
+    "metrics": "北极星：每周成功完成的 AI 任务；护栏：幻觉率、P95 延迟、人工接管率、每任务成本。",
+    "pitfalls": [
+      "直接跳到功能或结论，没有澄清业务目标与用户范围。",
+      "只报一个大盘平均值，没有分群、漏斗和基线。",
+      "没有明确北极星指标、护栏指标与折损点。",
+      "把假设数据当事实，忽略验证成本、风险和 ROI。"
+    ],
+    "answer": "For the question “Build offline and online AI evals,” I would start with the user workflow and a non-AI baseline. Then I would define a minimal architecture, a representative evaluation set, fallback paths, and launch gates for task success, latency, safety and unit cost. I would compare at least two alternatives, state my assumptions, and choose a focused first step. Success would be measured through a clear north star, funnel conversion, guardrails, and an ROI estimate based on explicit assumptions.",
+    "followup": "如果你的首选方案无法提升核心指标，你如何区分是用户需求判断错误、方案执行问题，还是实验设计问题？"
+  }
+];const CATS=[...new Set(DATA.map(x=>x.category))];const KEY='pm_lab_v1';let db={favorites:{},notes:{},drafts:{},done:{},mastered:{},stories:[]};try{db={...db,...JSON.parse(localStorage.getItem(KEY)||'{}')}}catch(e){}let tab='learn',filter='',category='all',current=null,revealed=false;const $=id=>document.getElementById(id),save=()=>localStorage.setItem(KEY,JSON.stringify(db)),esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])),btn=(name,fn,cl='')=>`<button class="${cl}" onclick="${fn}">${name}</button>`;function nav(){ $('nav').innerHTML=[['learn','📖 学习'],['practice','✍️ 刷题'],['favorites','⭐ 星标'],['progress','📊 进度'],['stories','💼 经历库']].map(([id,t])=>`<button class="${tab===id?'active':''}" onclick="switchTab('${id}')">${t}</button>`).join('')}function switchTab(t){tab=t;current=null;revealed=false;render()}function picker(){return `<div class="toolbar"><input id="search" placeholder="搜索题目 / Search" value="${esc(filter)}" oninput="filter=this.value;renderList()"><select id="cat" onchange="category=this.value;renderList()"><option value="all">全部题型</option>${CATS.map(c=>`<option value="${esc(c)}" ${category===c?'selected':''}>${esc(c)}</option>`).join('')}</select><button onclick="randomQ()">🎲 随机一题</button></div><div id="list"></div>`}function filtered(){return DATA.filter(q=>(category==='all'||q.category===category)&&(q.question.toLowerCase().includes(filter.toLowerCase())||q.english.toLowerCase().includes(filter.toLowerCase()))&&(tab!=='favorites'||db.favorites[q.id]))}function renderList(){let a=filtered();$('list').innerHTML=`<p class="muted">${a.length} 道题目</p><div class="question-list">${a.map(q=>`<button class="qrow" onclick="openQ(${q.id})"><b>${db.favorites[q.id]?'⭐ ':''}${q.id}. ${esc(q.question)}</b><span>${esc(q.english)} · ${esc(q.category)} ${db.mastered[q.id]?'· ✅ 已掌握':db.done[q.id]?'· ☑ 已学习':''}</span></button>`).join('')}</div>${a.length?'':'<div class="empty">没有匹配的题目</div>'}`};function randomQ(){let a=filtered();if(a.length)openQ(a[Math.floor(Math.random()*a.length)].id)}function openQ(id){current=id;revealed=tab!=='practice';render();window.scrollTo(0,0)}function updateNote(id,v){db.notes[id]=v;save()}function updateDraft(id,v){db.drafts[id]=v;save()}function star(id){db.favorites[id]=!db.favorites[id];save();render()}function mark(id,k){db[k][id]=!db[k][id];save();render()}function reveal(){let v=$('draft').value;if(!v.trim()){alert('请先输入你的回答，再解锁题解。');return}db.drafts[current]=v;db.done[current]=true;save();revealed=true;render()}function questionView(){let q=DATA.find(x=>x.id===current);let content=`<button onclick="current=null;render()">← 返回题库</button><section class="card"><span class="pill">${esc(q.category)}</span><h2>${q.id}. ${esc(q.question)}</h2><p class="muted">${esc(q.english)}</p><div class="actions">${btn(db.favorites[q.id]?'★ 已星标':'☆ 星标',`star(${q.id})`)}${btn(db.done[q.id]?'☑ 已学习':'标记已学习',`mark(${q.id},'done')`)}${btn(db.mastered[q.id]?'✅ 已掌握':'标记已掌握',`mark(${q.id},'mastered')`)}</div><h3>我的笔记 / 星标原因</h3><textarea placeholder="为什么收藏？哪些点容易漏？" oninput="updateNote(${q.id},this.value)">${esc(db.notes[q.id]||'')}</textarea></section>`;if(tab==='practice')content+=`<section class="card"><h3>先回答，再看题解</h3><p class="muted">建议按目标→分析→取舍→指标的结构作答；没有 AI 评分。</p><textarea id="draft" placeholder="Type your answer here / 输入自己的答案" oninput="updateDraft(${q.id},this.value)">${esc(db.drafts[q.id]||'')}</textarea><div class="actions">${btn(revealed?'✓ 已解锁':'提交回答并解锁', 'reveal()','primary')}</div></section>`;if(revealed)content+=`<section class="card"><h2>完整题解 / Answer Guide</h2><h3>结构化框架 · Framework</h3><div class="hint"><b>中文：</b>${esc(q.frameworkZH)}<br><b>English:</b> ${esc(q.frameworkEN)}</div><h3>详细解题思路 / Reasoning</h3><ol class="steps">${q.steps.map(x=>`<li>${esc(x)}</li>`).join('')}</ol><h3>具体分析 / Deep Dive</h3><p>${esc(q.detail)}</p><h3>北极星、折损点、ROI / Metrics</h3><p>${esc(q.metrics)}</p><p class="muted">ROI 估算公式： (增量收益 − 开发、推理及运营成本) ÷ 总成本。需要基线、时间窗口和假设，不要编造事实。</p><h3>容易遗漏 / Common Pitfalls</h3><ul class="steps">${q.pitfalls.map(x=>`<li>${esc(x)}</li>`).join('')}</ul><h3>英文参考答案 / Sample Answer</h3><p>${esc(q.answer)}</p><h3>面试官追问 / Follow-up</h3><p>${esc(q.followup)}</p><div class="actions">${btn('复制英文答案',`copyAnswer(${q.id})`)}${btn('下一题',`nextQ(${q.id})`,'primary')}</div></section>`;return content}function copyAnswer(id){let q=DATA.find(x=>x.id===id);navigator.clipboard?.writeText(q.answer).then(()=>alert('已复制')).catch(()=>alert('浏览器不支持复制'))}function nextQ(id){let i=DATA.findIndex(q=>q.id===id);openQ(DATA[(i+1)%DATA.length].id)}function progress(){let n=DATA.length,d=Object.values(db.done).filter(Boolean).length,m=Object.values(db.mastered).filter(Boolean).length,f=Object.values(db.favorites).filter(Boolean).length;return `<div class="stats"><div class="stat"><b>${d}/${n}</b><small>已学习</small></div><div class="stat"><b>${m}</b><small>已掌握</small></div><div class="stat"><b>${f}</b><small>星标题目</small></div></div><section class="card"><h2>题型掌握度</h2>${CATS.map(c=>{let a=DATA.filter(q=>q.category===c),done=a.filter(q=>db.mastered[q.id]).length;return `<p>${esc(c)} · ${done}/${a.length}</p><div class="progress"><div style="width:${done/a.length*100}%"></div></div>`}).join('')}</section><section class="card"><h3>备份与迁移</h3><p>下载进度、笔记和星标 JSON，换设备时可导入。题库内置在网页中。</p><div class="actions">${btn('导出数据','exportData()','primary')}<label class="chip">导入备份<input type="file" accept=".json" style="display:none" onchange="importData(this)"></label>${btn('重置筛选','resetFilters()')}</div></section>`}function resetFilters(){filter='';category='all';render()}function exportData(){let b=new Blob([JSON.stringify(db,null,2)],{type:'application/json'}),a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='pm-interview-backup.json';a.click();URL.revokeObjectURL(a.href)}function importData(el){let r=new FileReader();r.onload=()=>{try{let v=JSON.parse(r.result);if(!v||typeof v!=='object')throw Error();db={...db,...v};save();render();alert('导入成功')}catch(e){alert('无效的备份文件')}};r.readAsText(el.files[0])}function addStory(){let title=$('storytitle').value.trim(),desc=$('storydesc').value.trim();if(!title)return alert('请输入项目名称');db.stories.push({title,desc});save();render()}function stories(){let examples=['基金 / ETF AI Search（InvestPal）','企业数据分析 Agent / ChatBI','多模态作品集评审','汽车语音助手 Demo','PRD Writing Skill / DeepSeek Harness','Watchlist 产品体验优化','个人 AI 产品项目'];return `<section class="card"><h2>个人经历库 · 待完善</h2><p>这里已预留你的项目方向，但<strong>不会编造实际经历和数据</strong>。后续可以将完整项目复盘导入并扩展为 STAR、技术深挖、指标追问和英文口述题。</p>${examples.map(t=>`<span class="pill">${esc(t)}</span>`).join('')}<h3>新增项目占位</h3><input id="storytitle" placeholder="项目名称"><textarea id="storydesc" placeholder="背景、个人职责、方案、指标、结果、真实数据与待确认事项"></textarea>${btn('保存项目','addStory()','primary')}</section>${db.stories.map((s,i)=>`<section class="card"><h3>${esc(s.title)}</h3><p>${esc(s.desc)}</p>${btn('删除',`deleteStory(${i})`)}</section>`).join('')}`}function deleteStory(i){if(confirm('删除此项目？')){db.stories.splice(i,1);save();render()}}function render(){nav();$('app').innerHTML=current!==null?questionView():tab==='progress'?progress():tab==='stories'?stories():`<section class="card"><h2>${tab==='learn'?'学习模式':tab==='practice'?'刷题模式':'星标题库'}</h2><p class="muted">${tab==='practice'?'必须填写回答后才会显示答案。':tab==='favorites'?'只显示你收藏的题目与笔记。':'直接阅读中英文结构化思路与参考答案。'}</p></section>${picker()}`;if(current===null&&['learn','practice','favorites'].includes(tab))renderList()}render();</script></body></html>
